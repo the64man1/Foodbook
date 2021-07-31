@@ -23,8 +23,10 @@ const userSchema = new Schema({
     type: String,
     required: true,
     minlength: 5
-  }
+  },
   //TODO: more user data
+  savedRecipes: [Recipe],
+  createdRecipes: [Recipe]
 });
 
 // set up pre-save middleware to create password
