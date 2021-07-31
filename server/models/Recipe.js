@@ -11,7 +11,8 @@ const recipeSchema = new Schema({
     numberOfDislikes: Number,
     comments: [],
     image: '',
-    public: Boolean
+    public: Boolean,
+    categories: [Category]
 });
 
 const Recipe = mongoose.model('Recipe', recipeSchema);
