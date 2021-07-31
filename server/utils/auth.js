@@ -1,7 +1,10 @@
+//dotenv required for .env file
+require("dotenv").config();
+
 const jwt = require('jsonwebtoken');
 
-const secret = 'mostsecretestsecret';
-const expiration = '2h';
+const secret = process.env.secret;
+const expiration = process.env.expiration;
 
 module.exports = {
   authMiddleware: function ({ req }) {
