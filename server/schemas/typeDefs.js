@@ -10,18 +10,10 @@ const typeDefs = gql`
         createdRecipes: [Recipe]
     }
 
-    input UserData {
-        _id: ID
-        firstName: String
-        lastName: String
-        email: String
-        savedRecipes: [Recipe]
-        createdRecipes: [Recipe]
-    }
-
     type Recipe {
         _id: ID
         createdBy: User
+        title: String
         ingredients: [String]
         instructions: String
         numberOfLikes: Int
@@ -33,11 +25,6 @@ const typeDefs = gql`
     }
     
     type Category {
-        _id: ID
-        name: String
-    }
-
-    input CategoryData {
         _id: ID
         name: String
     }
@@ -55,7 +42,8 @@ const typeDefs = gql`
 
     input NewRecipeInput {
         _id: ID
-        createdBy: User
+        createdBy: String
+        title: String
         ingredients: [String]
         instructions: String
         numberOfLikes: Int
@@ -63,7 +51,6 @@ const typeDefs = gql`
         comments: [String]
         image: String
         public: Boolean
-        categories: [Category]
     }
 
     type Mutation {
