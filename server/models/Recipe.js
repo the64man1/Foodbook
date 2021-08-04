@@ -3,6 +3,7 @@ const { Schema } = mongoose;
 
 const recipeSchema = new Schema({
   createdBy: { type: Schema.Types.ObjectId, ref: "User" },
+  title: { type: String },
   ingredients: [{ type: String }],
   instructions: { type: String },
   numberOfLikes: { type: Number },
