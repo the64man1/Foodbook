@@ -31,8 +31,6 @@ db.once('open', async () => {
       public: true,
       categories: []
     },
-<<<<<<< HEAD
-    
     {
       //createdBy: "user1",
       title: "Papri Chaat(Indian Street Snack)",
@@ -98,14 +96,6 @@ db.once('open', async () => {
       "4 whole Eggs",
       "3/4 cup Chocolate Syrup (such As Hershey"],
       instructions: " Preheat oven to 350 degrees. Grease and flour bundt pan, Mix all ingredients but chocolate Syrup, Bake for 1 hour at 350 degrees.",
-  
-=======
-    {
-      //createdBy: "user2",
-      title: "Beter food",
-      ingredients: ["bacon", "cheese"],
-      instructions: "Cook this too",
->>>>>>> main
       numberOfLikes: 0,
       numberOfDislikes: 0,
       comments: [],
