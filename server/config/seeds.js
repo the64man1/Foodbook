@@ -1,5 +1,5 @@
 const db = require('./connection');
-const { Category } = require('../models');
+const { Category, Recipe } = require('../models');
 
 db.once('open', async () => {
   await Category.deleteMany();
@@ -16,54 +16,98 @@ db.once('open', async () => {
 
   console.log('categories seeded');
 
-  await Product.deleteMany();
+  await Recipe.deleteMany();
 
-  const products = await Product.insertMany([
+  const recipes = await Recipe.insertMany([
     {
-      name: 'Tin of Cookies',
-      description:
-        'Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos.',
-      image: 'cookie-tin.jpg',
-      category: categories[0]._id,
-      price: 2.99,
-      quantity: 500
+      //createdBy: "user1",
+      title: "Good food",
+      ingredients: ["onions", "celery"],
+      instructions: "Cook this",
+      numberOfLikes: 0,
+      numberOfDislikes: 0,
+      comments: [],
+      image: "",
+      public: true,
+      categories: []
+    },
+    
+    {
+      //createdBy: "user1",
+      title: "Papri Chaat(Indian Street Snack)",
+      ingredients: ["Chicpeas", "tamarind paste", "green pepper","mint","yogurt"],
+      instructions: "Boiled Chickpeas and mixed other ingrident to taste",
+      numberOfLikes: 0,
+      numberOfDislikes: 0,
+      comments: [],
+      image: "",
+      public: true,
+      categories: []
     },
     {
-      name: 'Canned Coffee',
-      description:
-        'Praesent sed lacinia mauris. Nulla congue nibh magna, at feugiat nunc scelerisque quis. Donec iaculis rutrum vulputate. Suspendisse lectus sem, vulputate ac lectus sed, placerat consequat dui.',
-      image: 'canned-coffee.jpg',
-      category: categories[0]._id,
-      price: 1.99,
-      quantity: 500
+      //createdBy: "user1",
+      title: "Beef-Tataki",
+      ingredients: ["beef cubes", "cucumber", "daikon","fresh ginger","garlic", "lemon"],
+      instructions: "Grill beef and cut into thinslices, slice daikon and cumbers into thin slices, pour soy sauce into small individual servings",
+      numberOfLikes: 0,
+      numberOfDislikes: 0,
+      comments: [],
+      image: "",
+      public: true,
+      categories: []
+    },
+    {
+      //createdBy: "user1",
+      title: "Breakfast Tacos",
+      ingredients: ["butter", "corn tortillas", "3 eggs","red potatos","shredded cheddar cheese"],
+      instructions: " Cook potatos in microwave, fry potatos with butter and make them slightly brown, add salt and pepper, add eggs to potato, heat tortillas in microwave for 45 seconds.",
+      numberOfLikes: 0,
+      numberOfDislikes: 0,
+      comments: [],
+      image: "",
+      public: true,
+      categories: []
+    },
+    {
+      //createdBy: "user1",
+      title: "Dinner Tonight: Fish with Saffron-Tomato Cous Cous Recipe",
+      ingredients: [" fillets white fish","2 tablespoons olive oil","2 tablespoons tomato paste",
+      "1/4 teaspoon ", "garlic",
+      "1/4 teaspoon red chile flakes, or more to taste",
+      "1 pinch saffron, dissolved in a little hot fish stock or water",
+      "1 1/2 cups instant cous cous",
+      "2 tablespoons chopped parsley",
+      "sliced or slivered almonds, for garnis"],
+      instructions: "Fry or Grill fish fillets and add other ingredients ",
+      numberOfLikes: 0,
+      numberOfDislikes: 0,
+      comments: [],
+      image: "",
+      public: true,
+      categories: []
+    },
+    {
+      //createdBy: "user1",
+      title: "Pistachio Cake",
+      ingredients: ["1 box White Cake Mix",
+      "1 package 4 Ounce Pistachio Instant Pudding Mix",
+      "1/2 cup Orange Juice",
+      "1/2 cup Water",
+      "1/2 cup Vegetable Oil",
+      "4 whole Eggs",
+      "3/4 cup Chocolate Syrup (such As Hershey"],
+      instructions: " Preheat oven to 350 degrees. Grease and flour bundt pan, Mix all ingredients but chocolate Syrup, Bake for 1 hour at 350 degrees.",
+  
+      numberOfLikes: 0,
+      numberOfDislikes: 0,
+      comments: [],
+      image: "",
+      public: true,
+      categories: []
     }
   ]);
 
-  console.log('products seeded');
-
-  await User.deleteMany();
-
-  await User.create({
-    firstName: 'Pamela',
-    lastName: 'Washington',
-    email: 'pamela@testmail.com',
-    password: 'password12345',
-    orders: [
-      {
-        products: [products[0]._id, products[0]._id, products[1]._id]
-      }
-    ]
-  });
-
-  await User.create({
-    firstName: 'Elijah',
-    lastName: 'Holt',
-    email: 'eholt@testmail.com',
-    password: 'password12345'
-  });
-
-  console.log('users seeded');
-
+  console.log('recipes seeded');
 
   process.exit();
 });
