@@ -10,6 +10,15 @@ const typeDefs = gql`
         createdRecipes: [Recipe]
     }
 
+    input User {
+        _id: ID
+        firstName: String
+        lastName: String
+        email: String
+        savedRecipes: [Recipe]
+        createdRecipes: [Recipe]
+    }
+
     type Recipe {
         _id: ID
         createdBy: [User]
@@ -28,6 +37,11 @@ const typeDefs = gql`
         name: String
     }
 
+    input Category {
+        _id: ID
+        name: String
+    }
+
     type Query {
         me: User
         allRecipes: [Recipe]
@@ -41,7 +55,7 @@ const typeDefs = gql`
 
     input NewRecipeInput {
         _id: ID
-        createdBy: [User]
+        createdBy: User
         ingredients: [String]
         instructions: String
         numberOfLikes: Int
@@ -49,13 +63,13 @@ const typeDefs = gql`
         comments: [String]
         image: String
         public: Boolean
-        categores: [Category]
+        categories: [Category]
     }
 
     type Mutation {
         login(email: String!, password: String!): Auth
         addUser(username: String!, email: String!, password: String!): Auth
-        addRecipe(recipe: NewRecipeInput) : Recipe
+        addRecipe(recipe: NewRecipeInput): Recipe
     }
 `;
 
