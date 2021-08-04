@@ -2,7 +2,7 @@ const bcrypt = require("bcrypt");
 const mongoose = require("mongoose");
 const { Schema } = mongoose;
 
-const Recipe = require("./Recipe");
+const Recipe = require("./Recipe")
 
 const userSchema = new Schema({
   firstName: {
