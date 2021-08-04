@@ -1,8 +1,6 @@
 const mongoose = require("mongoose");
 const { Schema } = mongoose;
 
-const User = require("./User")
-
 const recipeSchema = new Schema({
   createdBy: { type: Schema.Types.ObjectId, ref: "User" },
   ingredients: [{ type: String }],
