@@ -10,7 +10,7 @@ const typeDefs = gql`
         createdRecipes: [Recipe]
     }
 
-    input User {
+    input UserData {
         _id: ID
         firstName: String
         lastName: String
@@ -21,7 +21,7 @@ const typeDefs = gql`
 
     type Recipe {
         _id: ID
-        createdBy: [User]
+        createdBy: User
         ingredients: [String]
         instructions: String
         numberOfLikes: Int
@@ -37,7 +37,7 @@ const typeDefs = gql`
         name: String
     }
 
-    input Category {
+    input CategoryData {
         _id: ID
         name: String
     }
