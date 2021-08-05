@@ -1,18 +1,27 @@
+//#region Dependencies/Packages
 const express = require("express");
 const { ApolloServer } = require("apollo-server-express");
 const path = require("path");
+//#endregion
 
+//#region Local files
 const { typeDefs, resolvers } = require("./schemas");
 const { authMiddleware } = require("./utils/auth");
 const db = require("./config/connection");
+//#endregion
 
+//#region Set variables
 const PORT = process.env.PORT || 3001;
+//#endregion
+
+//#region Instantiations
 const app = express();
 const server = new ApolloServer({
   typeDefs,
   resolvers,
-  // context: authMiddleware,
+  context: authMiddleware,
 });
+//#endregion
 
 server.applyMiddleware({ app });
 
