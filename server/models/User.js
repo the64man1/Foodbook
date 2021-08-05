@@ -5,6 +5,11 @@ const { Schema } = mongoose;
 const Recipe = require("./Recipe");
 
 const userSchema = new Schema({
+  username: {
+    type: String,
+    required: true,
+    trim: true,
+  },
   firstName: {
     type: String,
     required: true,

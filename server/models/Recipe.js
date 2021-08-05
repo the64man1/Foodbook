@@ -8,20 +8,20 @@ const recipeSchema = new Schema({
   instructions: { type: String },
   likes: [
     {
-      user: String,
+      username: String,
       likedOn: String,
     },
   ],
   dislikes: [
     {
-      user: String,
+      username: String,
       dislikedOn: String,
     },
   ],
   comments: [
     {
+      username: String,
       comment: String,
-      user: String,
       commentedOn: String,
     },
   ],
