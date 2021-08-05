@@ -27,7 +27,7 @@ db.once('open', async () => {
       numberOfLikes: 0,
       numberOfDislikes: 0,
       comments: [],
-      image: "",
+      image: "good-food.jpg",
       public: true,
       categories: []
     },
@@ -39,7 +39,7 @@ db.once('open', async () => {
       numberOfLikes: 0,
       numberOfDislikes: 0,
       comments: [],
-      image: "",
+      image: "Papri-Chaat.jpg",
       public: true,
       categories: []
     },
@@ -51,7 +51,7 @@ db.once('open', async () => {
       numberOfLikes: 0,
       numberOfDislikes: 0,
       comments: [],
-      image: "",
+      image: "Beef-Tataki.jpg",
       public: true,
       categories: []
     },
@@ -63,7 +63,7 @@ db.once('open', async () => {
       numberOfLikes: 0,
       numberOfDislikes: 0,
       comments: [],
-      image: "",
+      image: "Breakfast-Tacos.jpg",
       public: true,
       categories: []
     },
@@ -81,7 +81,7 @@ db.once('open', async () => {
       numberOfLikes: 0,
       numberOfDislikes: 0,
       comments: [],
-      image: "",
+      image: "Fish-Dinner.jpg",
       public: true,
       categories: []
     },
@@ -99,7 +99,7 @@ db.once('open', async () => {
       numberOfLikes: 0,
       numberOfDislikes: 0,
       comments: [],
-      image: "",
+      image: "Pistachio-Cake.jpg",
       public: true,
       categories: []
     }
