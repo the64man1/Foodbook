@@ -6,9 +6,25 @@ const recipeSchema = new Schema({
   title: { type: String },
   ingredients: [{ type: String }],
   instructions: { type: String },
-  numberOfLikes: { type: Number },
-  numberOfDislikes: { type: Number },
-  comments: [{ type: String }],
+  likes: [
+    {
+      user: String,
+      likedOn: String,
+    },
+  ],
+  dislikes: [
+    {
+      user: String,
+      dislikedOn: String,
+    },
+  ],
+  comments: [
+    {
+      comment: String,
+      user: String,
+      commentedOn: String,
+    },
+  ],
   image: { type: String },
   public: { type: Boolean },
   categories: [{ type: Schema.Types.ObjectId, ref: "Category" }],
