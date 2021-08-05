@@ -32,7 +32,7 @@ const typeDefs = gql`
     type Query {
         me: User
         allRecipes: [Recipe]
-        singleRecipe: Recipe
+        singleRecipe(_id: ID!): Recipe
     }
 
     type Auth {
