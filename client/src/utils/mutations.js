@@ -34,30 +34,41 @@ export const CREATE_RECIPE = gql`
     mutation {
         createRecipe(input:{...}) {
             createdBy
-            recipeTitle
+            title
             ingredients
-            numberOfLikes
-            numberOfDislikes
-            comments
+            instructions
+            likes {
+                username
+                likedOn
+            }
+            dislikes {
+                username
+                dislikedOn
+            }
+            comments {
+                username
+                comment
+                commentedOn
+            }
             image
             public
             categories
         }
 
         input createdBy{
-            type: [User]
+            type: Schema.Types.ObjectId, ref: "User"
         }
 
-        input recipeTitle{
+        input title{
             type: String!
         }
 
         input ingredients{
-            type: []
+            type: String!
         }
 
         input instructions{
-            type: ""
+            type: String!
         }
 
         input numberOfLikes{
