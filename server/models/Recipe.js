@@ -1,20 +1,33 @@
 const mongoose = require("mongoose");
 const { Schema } = mongoose;
 
-const Category = require("./Category");
-
 const recipeSchema = new Schema({
-  createdBy: [User],
-  //added recipe title string to schema.
-  recipeTitle: String, 
-  ingredients: [],
-  instructions: "",
-  numberOfLikes: Number,
-  numberOfDislikes: Number,
-  comments: [],
-  image: "",
-  public: Boolean,
-  categories: [Category.schema],
+  createdBy: { type: Schema.Types.ObjectId, ref: "User" },
+  title: { type: String },
+  ingredients: [{ type: String }],
+  instructions: { type: String },
+  likes: [
+    {
+      username: String,
+      likedOn: String,
+    },
+  ],
+  dislikes: [
+    {
+      username: String,
+      dislikedOn: String,
+    },
+  ],
+  comments: [
+    {
+      username: String,
+      comment: String,
+      commentedOn: String,
+    },
+  ],
+  image: { type: String },
+  public: { type: Boolean },
+  categories: [{ type: Schema.Types.ObjectId, ref: "Category" }],
 });
 
 const Recipe = mongoose.model("Recipe", recipeSchema);
