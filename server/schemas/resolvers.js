@@ -56,6 +56,14 @@ const resolvers = {
 
         return newRecipe;
       }
+
+      // GraphQL - must add in HTTP Headers
+      // {
+      //   "Authorization": "Bearer AddTokenHere"
+      // }
+
+      // Throw error if user token is not provided
+      throw new Error("Authorization token must be provided");
     },
   },
 };
