@@ -5,6 +5,8 @@ import { setContext } from "@apollo/client/link/context";
 import Login from "./pages/Login";
 import Signup from "./pages/Signup";
 import Home from "./pages/Home";
+import RecipeList from "./components/RecipeList";
+import Nav from './components/Nav'
 // Construct our main GraphQL API endpoint
 const httpLink = createHttpLink({
 	uri: "/graphql",
@@ -32,7 +34,7 @@ const client = new ApolloClient({
 function App() {
 	return (
     <ApolloProvider client={client}>
-      <Router>
+      {/* <Router>
         <>
           <Switch>
             <Route exact path="/">
@@ -46,7 +48,9 @@ function App() {
             </Route>
           </Switch>
         </>
-      </Router>
+      </Router> */}
+      {/* <Nav /> */}
+      <RecipeList />
     </ApolloProvider>
   );
 }
