@@ -3,23 +3,23 @@ const { AuthenticationError } = require("apollo-server-express");
 const { signToken } = require("../utils/auth");
 
 const resolvers = {
-  Query: {
-    me: async (parent, args, context) => {
-      if (context.user) {
-        const userData = User.findOne({ _id: context.user._id });
-        return userData;
-      }
-      throw new AuthenticationError("Please log in");
-    },
-    allRecipes: async () => {
-      return await Recipe.find({});
-    },
-    singleRecipe: async (parent, { _id }) => {
-      return await Recipe.findById(_id);
-    },
-    categories: async () => {
-      return await Category.find({});
-    },
+    Query: {
+        me: async (parent, args, context) => {
+            if (context.user) {
+                const userData = User.findOne({ _id: context.user._id })
+                return userData;
+            }
+            throw new AuthenticationError("Please log in");
+        },
+        allRecipes: async () => {
+            return await Recipe.find({}).populate("createdBy").populate("categories");
+        },
+        singleRecipe: async (parent, { _id }) => {
+            return await Recipe.findById(_id);
+        },
+        categories: async () => {
+        return await Category.find({});
+        }
   },
   Mutation: {
     addUser: async (parent, args) => {
