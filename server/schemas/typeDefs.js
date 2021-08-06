@@ -1,63 +1,70 @@
-const { gql } = require('apollo-server-express');
+const { gql } = require("apollo-server-express");
 
 const typeDefs = gql`
-    type User {
-        _id: ID
-        firstName: String
-        lastName: String
-        email: String
-        savedRecipes: [Recipe]
-        createdRecipes: [Recipe]
-    }
+  type User {
+    _id: ID
+    username: String
+    firstName: String
+    lastName: String
+    email: String
+    savedRecipes: [Recipe]
+    createdRecipes: [Recipe]
+  }
 
-    type Recipe {
-        _id: ID
-        createdBy: User
-        title: String
-        ingredients: [String]
-        instructions: String
-        numberOfLikes: Int
-        numberOfDislikes: Int
-        comments: [String]
-        image: String
-        public: Boolean
-        categores: [Category]
-    }
-    
-    type Category {
-        _id: ID
-        name: String
-    }
+  type Recipe {
+    _id: ID
+    createdBy: User
+    title: String
+    ingredients: [String]
+    instructions: String
+    numberOfLikes: Int
+    numberOfDislikes: Int
+    comments: [String]
+    image: String
+    public: Boolean
+    categores: [Category]
+  }
 
-    type Query {
-        me: User
-        allRecipes: [Recipe]
-        singleRecipe: Recipe
-    }
+  type Category {
+    _id: ID
+    name: String
+  }
 
-    type Auth {
-        token: ID!
-        user: User
-    }
+  type Query {
+    me: User
+    allRecipes: [Recipe]
+    singleRecipe: Recipe
+  }
 
-    input NewRecipeInput {
-        _id: ID
-        createdBy: String
-        title: String
-        ingredients: [String]
-        instructions: String
-        numberOfLikes: Int
-        numberOfDislikes: Int
-        comments: [String]
-        image: String
-        public: Boolean
-    }
+  type Auth {
+    token: ID!
+    user: User
+  }
 
-    type Mutation {
-        login(email: String!, password: String!): Auth!
-        addUser(firstName: String!, lastName: String!, email: String!, password: String!): Auth
-        addRecipe(recipe: NewRecipeInput): Recipe!
-    }
+  input NewRecipeInput {
+    _id: ID
+    createdBy: String
+    title: String
+    ingredients: [String]
+    instructions: String
+    numberOfLikes: Int
+    numberOfDislikes: Int
+    comments: [String]
+    image: String
+    public: Boolean
+  }
+
+  type Mutation {
+    login(email: String!, password: String!): Auth!
+    addUser(
+      username: String!
+      firstName: String!
+      lastName: String!
+      email: String!
+      password: String!
+    ): Auth
+    addRecipe(recipe: NewRecipeInput): Recipe!
+  }
 `;
 
 module.exports = typeDefs;
