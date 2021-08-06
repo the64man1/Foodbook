@@ -22,7 +22,7 @@ const typeDefs = gql`
     comments: [Comments]
     image: String
     public: Boolean
-    categores: [Category]
+    categories: [Category]
   }
 
   type Likes {

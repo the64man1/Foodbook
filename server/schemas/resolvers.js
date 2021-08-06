@@ -12,7 +12,7 @@ const resolvers = {
             throw new AuthenticationError("Please log in");
         },
         allRecipes: async () => {
-            return await Recipe.find({}).populate("createdBy");
+            return await Recipe.find({}).populate("createdBy").populate("categories");
         },
         singleRecipe: async (parent, { _id }) => {
             return await Recipe.findById(_id);
