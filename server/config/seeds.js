@@ -54,7 +54,7 @@ db.once("open", async () => {
           commentedOn: new Date().toISOString(),
         },
       ],
-      image: "",
+      image: "good-food.jpg",
       public: true,
       categories: categories[2]._id,
     },
@@ -78,9 +78,9 @@ db.once("open", async () => {
           commentedOn: new Date().toISOString(),
         },
       ],
-      image: "",
+      image: "Papri-Chaat.jpg",
       public: true,
-      categories: categories[2]._id,
+      categories: categories[1]._id,
     },
     {
       createdBy: users[0]._id,
@@ -96,10 +96,10 @@ db.once("open", async () => {
       instructions:
         "Grill beef and cut into thinslices, slice daikon and cumbers into thin slices, pour soy sauce into small individual servings",
       likes: [
-        { username: "username1", likedOn: new Date().toISOString() },
-        { username: "username2", likedOn: new Date().toISOString() },
+        { username: "username1", likedOn: new Date().toISOString() }
+        
       ],
-      dislikes: [],
+      dislikes: [{ username: "username2", likedOn: new Date().toISOString() }],
       comments: [
         {
           username: "username1",
@@ -108,11 +108,11 @@ db.once("open", async () => {
         },
         {
           username: "username2",
-          comment: "username2 liked it",
+          comment: "username2 disliked it",
           commentedOn: new Date().toISOString(),
         },
       ],
-      image: "",
+      image: "Beef-Tataki.jpg",
       public: true,
       categories: categories[1]._id,
     },
@@ -128,10 +128,24 @@ db.once("open", async () => {
       ],
       instructions:
         " Cook potatos in microwave, fry potatos with butter and make them slightly brown, add salt and pepper, add eggs to potato, heat tortillas in microwave for 45 seconds.",
-      likes: [],
-      dislikes: [],
-      comments: [],
-      image: "",
+        likes: [
+          { username: "username1", likedOn: new Date().toISOString() }
+          
+        ],
+      
+      dislikes: [{ username: "username2", likedOn: new Date().toISOString() }],
+      comments: [{
+          username: "username1",
+          comment: "username1 liked it",
+          commentedOn: new Date().toISOString(),
+        },
+        {
+          username: "username2",
+          comment: "username2 disliked it",
+          commentedOn: new Date().toISOString(),
+        }
+      ],
+      image: "Breakfast-Tacos.jpg",
       public: true,
       categories: categories[0]._id,
     },
@@ -151,10 +165,24 @@ db.once("open", async () => {
         "sliced or slivered almonds, for garnis",
       ],
       instructions: "Fry or Grill fish fillets and add other ingredients ",
-      likes: [],
+      likes: [
+        { username: "username1", likedOn: new Date().toISOString() },
+        { username: "username2", likedOn: new Date().toISOString() },
+      ],
       dislikes: [],
-      comments: [],
-      image: "",
+      comments: [
+        {
+          username: "username1",
+          comment: "username1 liked it",
+          commentedOn: new Date().toISOString(),
+        },
+        {
+          username: "username2",
+          comment: "username2 liked it",
+          commentedOn: new Date().toISOString(),
+        },
+      ],
+      image: "Fish-Dinner.jpg",
       public: true,
       categories: categories[2]._id,
     },
@@ -172,13 +200,118 @@ db.once("open", async () => {
       ],
       instructions:
         " Preheat oven to 350 degrees. Grease and flour bundt pan, Mix all ingredients but chocolate Syrup, Bake for 1 hour at 350 degrees.",
-      likes: [],
+        likes: [
+          { username: "username1", likedOn: new Date().toISOString() },
+          { username: "username2", likedOn: new Date().toISOString() },
+        ],
       dislikes: [],
-      comments: [],
-      image: "",
+      comments: [
+        {
+          username: "username1",
+          comment: "username1 liked it",
+          commentedOn: new Date().toISOString(),
+        },
+        {
+          username: "username2",
+          comment: "username2 liked it",
+          commentedOn: new Date().toISOString(),
+        },
+      ],
+      image: "Pistachio-Cake.jpg",
       public: true,
       categories: categories[6]._id,
     },
+    {
+      createdBy: users[0]._id,
+      title: " ",
+      ingredients: [
+        "2 Tabsps flour",
+
+      ],
+      instructions:
+        "C ",
+      likes: [
+        { username: "username1", likedOn: new Date().toISOString() }
+      ],
+      dislikes: [{ username: "username2", likedOn: new Date().toISOString() }],
+      comments: [
+        {
+          username: "username1",
+          comment: "username1 liked it",
+          commentedOn: new Date().toISOString(),
+        },
+        {
+          username: "username2",
+          comment: "username2 disliked it",
+          commentedOn: new Date().toISOString(),
+        },
+      ],
+      image: "tuna.jpg",
+      public: true,
+      categories: categories[1]._id,
+    },
+    {
+      createdBy: users[0]._id,
+      title: "Dinner Rolls ",
+      ingredients: [
+        "melted butter","1 pound fresh pizza dough"
+
+      ],
+      instructions:
+        "Cook in the oven at 320 F for twenty minutes ",
+      likes: [
+        { username: "username1", likedOn: new Date().toISOString() }
+      ],
+      dislikes: [{ username: "username2", likedOn: new Date().toISOString() }],
+      comments: [
+        {
+          username: "username1",
+          comment: "username1 liked it",
+          commentedOn: new Date().toISOString(),
+        },
+        {
+          username: "username2",
+          comment: "username2 disliked it",
+          commentedOn: new Date().toISOString(),
+        },
+      ],
+      image: "Dinner-Rolles",
+      public: true,
+      categories: categories[4]._id,
+    },
+    {
+      createdBy: users[0]._id,
+      title: "Strawberry Hazelnut Salad ",
+      ingredients: [
+        "8 oz salad green", "8 oz strawberries", "2 oz Hazelnuts", "3 oz Balsamic Vinegar", "1 tbs sugar",
+        "4 oz Extra Virgin Olive Oil",
+        "4 x salt and pepper"
+
+      ],
+      instructions:
+        "mix evrything and sprinke hazlenut at the top  ",
+      likes: [
+        { username: "username1", likedOn: new Date().toISOString() }
+      ],
+      dislikes: [{ username: "username2", likedOn: new Date().toISOString() }],
+      comments: [
+        {
+          username: "username1",
+          comment: "username1 liked it",
+          commentedOn: new Date().toISOString(),
+        },
+        {
+          username: "username2",
+          comment: "username2 disliked it",
+          commentedOn: new Date().toISOString(),
+        },
+      ],
+      image: "strawberry-Hazlenut-Salad.jpg",
+      public: true,
+      categories: categories[5]._id,
+    },
+
+
   ]);
 
   console.log("recipes seeded");

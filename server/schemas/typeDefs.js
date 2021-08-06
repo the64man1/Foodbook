@@ -17,12 +17,31 @@ const typeDefs = gql`
     title: String
     ingredients: [String]
     instructions: String
-    numberOfLikes: Int
-    numberOfDislikes: Int
-    comments: [String]
+    likes: [Likes]
+    dislikes: [Dislikes]
+    comments: [Comments]
     image: String
     public: Boolean
-    categores: [Category]
+    categories: [Category]
+  }
+
+  type Likes {
+    id: ID!
+    username: String
+    likedOn: String
+  }
+
+  type Dislikes {
+    id: ID!
+    username: String
+    dislikedOn: String
+  }
+
+  type Comments {
+    id: ID!
+    username: String
+    comment: String
+    commentedOn: String
   }
 
   type Category {
@@ -34,6 +53,7 @@ const typeDefs = gql`
     me: User
     allRecipes: [Recipe]
     singleRecipe: Recipe
+    categories: [Category]
   }
 
   type Auth {
@@ -47,9 +67,6 @@ const typeDefs = gql`
     title: String
     ingredients: [String]
     instructions: String
-    numberOfLikes: Int
-    numberOfDislikes: Int
-    comments: [String]
     image: String
     public: Boolean
   }
