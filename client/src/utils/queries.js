@@ -22,8 +22,46 @@ export const QUERY_RECIPE = gql`
         categories
         ingredients
         instructions
-        likes
-        dislikes
-        comments
+        likes {
+            username
+            likedOn
+        }
+        dislikes{
+            username
+            dislikedOn
+        }
+        comments {
+            username
+            comment
+            commentedOn
+        }
         public
+        image
     }`;
+
+
+export const QUERY_SINGLE_RECIPE = gql`
+    query singleRecipe($recipeID: ID) {
+        singleRecipe(id: $recipeID)
+        _id
+        title
+        categories
+        ingredients
+        instructions
+        likes {
+            username
+            likedOn
+        }
+        dislikes{
+            username
+            dislikedOn
+        }
+        comments {
+            username
+            comment
+            commentedOn
+        }
+        public
+        image
+    }
+`;
