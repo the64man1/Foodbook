@@ -1,5 +1,5 @@
 const db = require('./connection');
-const { Category, Recipe } = require('../models');
+const { Category, Recipe, User } = require('../models');
 
 db.once('open', async () => {
   await Category.deleteMany();
@@ -15,12 +15,31 @@ db.once('open', async () => {
   ]);
 
   console.log('categories seeded');
+  
+  await User.deleteMany();
+
+  const users = await User.insertMany([
+    {
+      firstName: "Seed",
+      lastName: "User",
+      email:"none@none.com",
+      password: "password",
+    },
+    {
+      firstName: "Seed2",
+      lastName: "User2",
+      email:"none2@none.com",
+      password: "password",
+    }
+  ]);
+
+  console.log('users seeded');
 
   await Recipe.deleteMany();
 
   const recipes = await Recipe.insertMany([
     {
-      //createdBy: "user1",
+      createdBy: users[0]._id,
       title: "Good food",
       ingredients: ["onions", "celery"],
       instructions: "Cook this",
@@ -29,10 +48,10 @@ db.once('open', async () => {
       comments: [],
       image: "",
       public: true,
-      categories: []
+      categories: categories[2]._id
     },
     {
-      //createdBy: "user1",
+      createdBy: users[0]._id,
       title: "Papri Chaat(Indian Street Snack)",
       ingredients: ["Chicpeas", "tamarind paste", "green pepper","mint","yogurt"],
       instructions: "Boiled Chickpeas and mixed other ingrident to taste",
@@ -41,10 +60,10 @@ db.once('open', async () => {
       comments: [],
       image: "",
       public: true,
-      categories: []
+      categories: categories[2]._id
     },
     {
-      //createdBy: "user1",
+      createdBy: users[0]._id,
       title: "Beef-Tataki",
       ingredients: ["beef cubes", "cucumber", "daikon","fresh ginger","garlic", "lemon"],
       instructions: "Grill beef and cut into thinslices, slice daikon and cumbers into thin slices, pour soy sauce into small individual servings",
@@ -53,10 +72,10 @@ db.once('open', async () => {
       comments: [],
       image: "",
       public: true,
-      categories: []
+      categories: categories[1]._id
     },
     {
-      //createdBy: "user1",
+      createdBy: users[0]._id,
       title: "Breakfast Tacos",
       ingredients: ["butter", "corn tortillas", "3 eggs","red potatos","shredded cheddar cheese"],
       instructions: " Cook potatos in microwave, fry potatos with butter and make them slightly brown, add salt and pepper, add eggs to potato, heat tortillas in microwave for 45 seconds.",
@@ -65,10 +84,10 @@ db.once('open', async () => {
       comments: [],
       image: "",
       public: true,
-      categories: []
+      categories: categories[0]._id
     },
     {
-      //createdBy: "user1",
+      createdBy: users[0]._id,
       title: "Dinner Tonight: Fish with Saffron-Tomato Cous Cous Recipe",
       ingredients: [" fillets white fish","2 tablespoons olive oil","2 tablespoons tomato paste",
       "1/4 teaspoon ", "garlic",
@@ -83,10 +102,10 @@ db.once('open', async () => {
       comments: [],
       image: "",
       public: true,
-      categories: []
+      categories: categories[2]._id
     },
     {
-      //createdBy: "user1",
+      createdBy: users[0]._id,
       title: "Pistachio Cake",
       ingredients: ["1 box White Cake Mix",
       "1 package 4 Ounce Pistachio Instant Pudding Mix",
@@ -101,7 +120,7 @@ db.once('open', async () => {
       comments: [],
       image: "",
       public: true,
-      categories: []
+      categories: categories[6]._id
     }
   ]);
 
