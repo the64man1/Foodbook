@@ -221,6 +221,97 @@ db.once("open", async () => {
       public: true,
       categories: categories[6]._id,
     },
+    {
+      createdBy: users[0]._id,
+      title: " ",
+      ingredients: [
+        "2 Tabsps flour",
+
+      ],
+      instructions:
+        "C ",
+      likes: [
+        { username: "username1", likedOn: new Date().toISOString() }
+      ],
+      dislikes: [{ username: "username2", likedOn: new Date().toISOString() }],
+      comments: [
+        {
+          username: "username1",
+          comment: "username1 liked it",
+          commentedOn: new Date().toISOString(),
+        },
+        {
+          username: "username2",
+          comment: "username2 disliked it",
+          commentedOn: new Date().toISOString(),
+        },
+      ],
+      image: "tuna.jpg",
+      public: true,
+      categories: categories[1]._id,
+    },
+    {
+      createdBy: users[0]._id,
+      title: "Dinner Rolls ",
+      ingredients: [
+        "melted butter","1 pound fresh pizza dough"
+
+      ],
+      instructions:
+        "Cook in the oven at 320 F for twenty minutes ",
+      likes: [
+        { username: "username1", likedOn: new Date().toISOString() }
+      ],
+      dislikes: [{ username: "username2", likedOn: new Date().toISOString() }],
+      comments: [
+        {
+          username: "username1",
+          comment: "username1 liked it",
+          commentedOn: new Date().toISOString(),
+        },
+        {
+          username: "username2",
+          comment: "username2 disliked it",
+          commentedOn: new Date().toISOString(),
+        },
+      ],
+      image: "Dinner-Rolles",
+      public: true,
+      categories: categories[4]._id,
+    },
+    {
+      createdBy: users[0]._id,
+      title: "Strawberry Hazelnut Salad ",
+      ingredients: [
+        "8 oz salad green", "8 oz strawberries", "2 oz Hazelnuts", "3 oz Balsamic Vinegar", "1 tbs sugar",
+        "4 oz Extra Virgin Olive Oil",
+        "4 x salt and pepper"
+
+      ],
+      instructions:
+        "mix evrything and sprinke hazlenut at the top  ",
+      likes: [
+        { username: "username1", likedOn: new Date().toISOString() }
+      ],
+      dislikes: [{ username: "username2", likedOn: new Date().toISOString() }],
+      comments: [
+        {
+          username: "username1",
+          comment: "username1 liked it",
+          commentedOn: new Date().toISOString(),
+        },
+        {
+          username: "username2",
+          comment: "username2 disliked it",
+          commentedOn: new Date().toISOString(),
+        },
+      ],
+      image: "strawberry-Hazlenut-Salad.jpg",
+      public: true,
+      categories: categories[5]._id,
+    },
+
+
   ]);
 
   console.log("recipes seeded");
