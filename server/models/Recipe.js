@@ -5,6 +5,8 @@ const Category = require("./Category");
 
 const recipeSchema = new Schema({
   createdBy: [User],
+  //added recipe title string to schema.
+  recipeTitle: String, 
   ingredients: [],
   instructions: "",
   numberOfLikes: Number,
