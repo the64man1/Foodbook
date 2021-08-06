@@ -1,6 +1,6 @@
-const { User, Recipe } = require('../models');
-const { AuthenticationError } = require('apollo-server-express');
-const { signToken } = require('../utils/auth');
+const { User, Recipe, Category } = require("../models");
+const { AuthenticationError } = require("apollo-server-express");
+const { signToken } = require("../utils/auth");
 
 const resolvers = {
     Query: {
@@ -16,43 +16,48 @@ const resolvers = {
         },
         singleRecipe: async (parent, { _id }) => {
             return await Recipe.findById(_id);
+        },
+        categories: async () => {
+        return await Category.find({});
         }
+  },
+  Mutation: {
+    addUser: async (parent, args) => {
+      const user = await User.create(args);
+      const token = signToken(user);
+
+      return { token, user };
     },
-    Mutation: {
-        addUser: async (parent, args) => {
-            const user = await User.create(args);
-            const token = signToken(user);
-            
-            return { token, user };
-        },
-        login: async (parents, { email, password }) => {
-            const user = await User.findOne({ email });
+    login: async (parents, { email, password }) => {
+      const user = await User.findOne({ email });
 
-            if (!user) {
-                throw new AuthenticationError("Email not found");
-            }
+      if (!user) {
+        throw new AuthenticationError("Email not found");
+      }
 
-            const correctPw = await user.isCorrectPassword(password);
+      const correctPw = await user.isCorrectPassword(password);
 
-            if (!correctPw) {
-                throw new AuthenticationError("Password incorrect")
-            }
+      if (!correctPw) {
+        throw new AuthenticationError("Password incorrect");
+      }
 
-            const token = signToken(user);
+      const token = signToken(user);
 
-            return { token, user };
-        },
-        addRecipe: async (parent, { recipe }, context) => {
-            if (context.user) {
-                const newRecipe = new Recipe({ recipe });
+      return { token, user };
+    },
+    addRecipe: async (parent, { recipe }, context) => {
+      if (context.user) {
+        const newRecipe = new Recipe({ recipe });
 
-                await Recipe.create(newRecipe);
-                await User.findByIdAndUpdate(context.user._id, { $push: { createdRecipes: newRecipe } });
+        await Recipe.create(newRecipe);
+        await User.findByIdAndUpdate(context.user._id, {
+          $push: { createdRecipes: newRecipe },
+        });
 
-                return newRecipe;
-            }
-        }
-    }
-}
+        return newRecipe;
+      }
+    },
+  },
+};
 
 module.exports = resolvers;
