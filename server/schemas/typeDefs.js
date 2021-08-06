@@ -66,9 +66,6 @@ const typeDefs = gql`
     title: String
     ingredients: [String]
     instructions: String
-    numberOfLikes: Int
-    numberOfDislikes: Int
-    comments: [String]
     image: String
     public: Boolean
   }
