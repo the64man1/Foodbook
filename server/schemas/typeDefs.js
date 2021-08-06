@@ -53,6 +53,7 @@ const typeDefs = gql`
     me: User
     allRecipes: [Recipe]
     singleRecipe: Recipe
+    categories: [Category]
   }
 
   type Auth {
