@@ -6,7 +6,8 @@ import Login from "./pages/Login";
 import Signup from "./pages/Signup";
 import Home from "./pages/Home";
 import RecipeList from "./components/RecipeList";
-import Nav from './components/Nav'
+import Nav from './components/Nav';
+import Profile from './pages/Profile'
 import { Container } from "semantic-ui-react";
 import "semantic-ui-css/semantic.min.css";
 // Construct our main GraphQL API endpoint
@@ -41,13 +42,20 @@ function App() {
           <Nav />
           <Switch>
             <Route exact path="/">
-              <Login />
+              <RecipeList />
             </Route>
             <Route path="/signup">
               <Signup />
             </Route>
             <Route path="/home">
-              <Home />
+              {/* <Home /> */}
+              <RecipeList />
+            </Route>
+            <Route exact path="/login">
+              <Login />
+            </Route>
+            <Route exact path="/profile">
+              <Profile />
             </Route>
             <Route path="/recipe-list">
               <RecipeList />
