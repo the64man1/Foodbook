@@ -13,7 +13,7 @@ const typeDefs = gql`
 
   type Recipe {
     id: ID
-    createdBy: User
+    createdBy: ID
     title: String
     ingredients: [String]
     instructions: String
@@ -63,7 +63,7 @@ const typeDefs = gql`
 
   input NewRecipeInput {
     id: ID
-    createdBy: String
+    createdBy: ID
     title: String
     ingredients: [String]
     instructions: String
