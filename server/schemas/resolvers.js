@@ -45,9 +45,16 @@ const resolvers = {
 
       return { token, user };
     },
-    addRecipe: async (parent, { recipe }, context) => {
+    addRecipe: async (parent, { recipe:{title, ingredients, instructions, image,public } }, context) => {
       if (context.user) {
-        const newRecipe = new Recipe({ recipe });
+        const newRecipe = new Recipe({
+          createdBy: context.user._id,
+          title,
+          ingredients,
+          instructions,
+          image,
+          public
+        });
 
         await Recipe.create(newRecipe);
         await User.findByIdAndUpdate(context.user._id, {
