@@ -22,7 +22,7 @@ const typeDefs = gql`
     comments: [Comments]
     image: String
     public: Boolean
-    categories: [Category]
+    categories: [ID]
   }
 
   type Likes {
@@ -69,6 +69,7 @@ const typeDefs = gql`
     instructions: String
     image: String
     public: Boolean
+    categories: [ID]
   }
 
   type Mutation {
