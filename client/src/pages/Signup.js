@@ -33,12 +33,13 @@ function Signup(props) {
     return (
       <div className="container my-1">
         <Link to="/">← Go to Login</Link>
-  
+
         <h2>Signup</h2>
         <form onSubmit={handleFormSubmit}>
-          <div className="flex-row space-between my-2">
+          <div className="form-group">
             <label htmlFor="firstName">First Name:</label>
             <input
+              className="form-control"
               placeholder="First"
               name="firstName"
               type="firstName"
@@ -46,9 +47,10 @@ function Signup(props) {
               onChange={handleChange}
             />
           </div>
-          <div className="flex-row space-between my-2">
+          <div className="form-group flex-row space-between my-2">
             <label htmlFor="lastName">Last Name:</label>
             <input
+              className="form-control"
               placeholder="Last"
               name="lastName"
               type="lastName"
@@ -56,9 +58,10 @@ function Signup(props) {
               onChange={handleChange}
             />
           </div>
-          <div className="flex-row space-between my-2">
+          <div className="form-group flex-row space-between my-2">
             <label htmlFor="email">Email:</label>
             <input
+              className="form-control"
               placeholder="youremail@test.com"
               name="email"
               type="email"
@@ -66,9 +69,10 @@ function Signup(props) {
               onChange={handleChange}
             />
           </div>
-          <div className="flex-row space-between my-2">
+          <div className="form-group flex-row space-between my-2">
             <label htmlFor="pwd">Password:</label>
             <input
+              className="form-control"
               placeholder="******"
               name="password"
               type="password"
@@ -77,7 +81,9 @@ function Signup(props) {
             />
           </div>
           <div className="flex-row flex-end">
-            <button type="submit">Submit</button>
+            <button type="submit" className="btn btn-primary mb-2">
+              Submit
+            </button>
           </div>
         </form>
       </div>
