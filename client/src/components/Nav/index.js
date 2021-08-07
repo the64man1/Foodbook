@@ -15,8 +15,8 @@ function Nav() {
     <div>
       <Menu pointing>
         <Menu.Item
-          name="home"
-          active={activeItem === "home"}
+          name="foodbook"
+          active={activeItem === "foodbook"}
           onClick={handleItemClick}
           as={Link}
           to="/"
@@ -29,11 +29,25 @@ function Nav() {
           to="/signup"
         />
         <Menu.Item
-          name="recipe-list"
-          active={activeItem === "recipe-list"}
+          name="login"
+          active={activeItem === "login"}
           onClick={handleItemClick}
           as={Link}
-          to="/recipe-list"
+          to="/login"
+        />
+        <Menu.Item
+          name="create-recipe"
+          active={activeItem === "create-recipe"}
+          onClick={handleItemClick}
+          as={Link}
+          to="/create-recipe"
+        />
+        <Menu.Item
+          name="profile"
+          active={activeItem === "profile"}
+          onClick={handleItemClick}
+          as={Link}
+          to="/profile"
         />
         <Menu.Menu position="right">
           <Menu.Item>
