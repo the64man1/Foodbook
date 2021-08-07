@@ -78,11 +78,9 @@ const resolvers = {
     },
     removeRecipe: async (_, { recipeId, createdBy }, context) => {
       const loggedInUserId = context.user._id;
-      console.log(loggedInUserId);
-      console.log(createdBy);
-
+      
       if (loggedInUserId) {
-        console.log("User is logged in");
+        
         if (loggedInUserId === createdBy) {
           console.log("User can delete recipe");
           const recipe = await Recipe.findOneAndDelete({
