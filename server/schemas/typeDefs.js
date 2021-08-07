@@ -100,6 +100,7 @@ const typeDefs = gql`
       password: String!
     ): Auth
     addRecipe(recipe: NewRecipeInput): NewRecipe!
+    removeRecipe(recipeId: ID!, createdBy: String!): Recipe
   }
 `;
 
