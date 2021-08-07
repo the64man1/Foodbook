@@ -42,7 +42,7 @@ export const QUERY_RECIPE = gql`
 
 export const QUERY_SINGLE_RECIPE = gql`
     query singleRecipe($recipeID: ID) {
-        singleRecipe(id: $recipeID)
+        singleRecipe(id: $recipeID) {
         _id
         title
         categories
@@ -63,5 +63,6 @@ export const QUERY_SINGLE_RECIPE = gql`
         }
         public
         image
+        }
     }
 `;
