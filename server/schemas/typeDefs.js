@@ -2,7 +2,7 @@ const { gql } = require("apollo-server-express");
 
 const typeDefs = gql`
   type User {
-    _id: ID
+    id: ID
     username: String
     firstName: String
     lastName: String
@@ -12,7 +12,7 @@ const typeDefs = gql`
   }
 
   type Recipe {
-    _id: ID
+    id: ID
     createdBy: User
     title: String
     ingredients: [String]
@@ -45,7 +45,7 @@ const typeDefs = gql`
   }
 
   type Category {
-    _id: ID
+    id: ID
     name: String
   }
 
@@ -62,7 +62,7 @@ const typeDefs = gql`
   }
 
   input NewRecipeInput {
-    _id: ID
+    id: ID
     createdBy: String
     title: String
     ingredients: [String]
