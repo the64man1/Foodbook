@@ -1,65 +1,47 @@
-import React from "react";
-import Auth from "../../utils/auth";
+import React, { useState } from "react";
 import { Link } from "react-router-dom";
+import { Input, Menu, Segment } from "semantic-ui-react";
+
+import Auth from "../../utils/auth";
 
 function Nav() {
+  const pathname = window.location.pathname;
+  const path = pathname === "/" ? "home" : pathname.substr(1);
+  const [activeItem, setActiveItem] = useState(path);
 
-  function showNavigation() {
-    if (Auth.loggedIn()) {
-      return (
-        <ul className="flex-row">
-          <li className="mx-1">
-            <Link to="/search">
-              See the Foodbook
-            </Link>
-          </li>
-          <li className="mx-1">
-            <Link to="/create">
-              Create New Recipe
-            </Link>
-          </li>
-          <li className="mx-1">
-            <Link to="/profile">
-              My Profile
-            </Link>
-          </li>
-          <li className="mx-1">
-            {/* this is not using the Link component to logout or user and then refresh the application to the start */}
-            <a href="/" onClick={() => Auth.logout()}>
-              Logout
-            </a>
-          </li>
-        </ul>
-      );
-    } else {
-      return (
-        <ul className="flex-row">
-          <li className="mx-1">
-            <Link to="/search">
-              See the Foodbook
-            </Link>
-          </li>
-          <li className="mx-1">
-            <Link to="/signup">
-              Signup
-            </Link>
-          </li>
-          <li className="mx-1">
-            <Link to="/login">
-              Login
-            </Link>
-          </li>
-        </ul>
-      );
-    }
-  }
+  const handleItemClick = (e, { name }) => setActiveItem(name);
 
   return (
-    <header className="flex-row px-1">
-      <nav>
-        {showNavigation()}
-      </nav>
-    </header>
+    <div>
+      <Menu pointing>
+        <Menu.Item
+          name="home"
+          active={activeItem === "home"}
+          onClick={handleItemClick}
+          as={Link}
+          to="/"
+        />
+        <Menu.Item
+          name="signup"
+          active={activeItem === "signup"}
+          onClick={handleItemClick}
+          as={Link}
+          to="/signup"
+        />
+        <Menu.Item
+          name="recipe-list"
+          active={activeItem === "recipe-list"}
+          onClick={handleItemClick}
+          as={Link}
+          to="/recipe-list"
+        />
+        <Menu.Menu position="right">
+          <Menu.Item>
+            <Input icon="search" placeholder="Search..." />
+          </Menu.Item>
+        </Menu.Menu>
+      </Menu>
+    </div>
   );
 }
 
