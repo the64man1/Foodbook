@@ -8,7 +8,7 @@ import breakfastTaco from '../../images/Breakfast-Tacos.jpg' ;
 import goodFood from '../../images/good-food.jpg' ; 
 import PapriChaat from '../../images/Papri-Chaat.jpg' ; 
 
-//import { GET_ALL_RECIPES } from '../../utils/queries';
+import { QUERY_RECIPES } from '../../utils/queries';
 
 function RecipeList() {
     const mockData = [
@@ -63,16 +63,43 @@ function RecipeList() {
       },
     ];
 
-    //const { loading, data } = useQuery(GET_ALL_RECIPES);
-    
+    const { loading, data } = useQuery(QUERY_RECIPES);
+    if(data){
+      console.log(data.allRecipes[0]);
+    }
+    const recipeData = data?.allRecipes || [];
+    console.log(recipeData)
+
     return (
-        <div className="my-2">
+      //   <div className="my-2">
+      //     <h2>The Foodbook Recipes:</h2>
+      //       <div className="flex-row">
+      //         {mockData.map((recipe) => (
+      //           <RecipeItem
+      //             key={recipe._id}
+      //             _id={recipe._id}
+      //             image={recipe.image}
+      //             title={recipe.title}
+      //             instructions ={recipe.instructions}
+      //             ingredients={recipe.ingredients}
+      //             createdBy={recipe.createdBy}
+      //             likes={recipe.likes}
+      //             dislikes={recipe.dislikes}
+      //             comments={recipe.comments}
+      //             categories={recipe.categories}
+      //           />
+      //         ))}
+      //       </div>
+      //   </div>
+      // );
+
+      <div className="my-2">
           <h2>The Foodbook Recipes:</h2>
             <div className="flex-row">
-              {mockData.map((recipe) => (
+              {recipeData.map((recipe) => (
                 <RecipeItem
-                  key={recipe._id}
-                  _id={recipe._id}
+                  key={recipe.id}
+                  id={recipe.id}
                   image={recipe.image}
                   title={recipe.title}
                   instructions ={recipe.instructions}
