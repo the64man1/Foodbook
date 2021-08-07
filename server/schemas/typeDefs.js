@@ -2,7 +2,7 @@ const { gql } = require("apollo-server-express");
 
 const typeDefs = gql`
   type User {
-    _id: ID
+    id: ID
     username: String
     firstName: String
     lastName: String
@@ -12,21 +12,48 @@ const typeDefs = gql`
   }
 
   type Recipe {
-    _id: ID
-    createdBy: User
+    id: ID
+    createdBy: UserRecipe
     title: String
     ingredients: [String]
     instructions: String
-    numberOfLikes: Int
-    numberOfDislikes: Int
-    comments: [String]
+    likes: [Likes]
+    dislikes: [Dislikes]
+    comments: [Comments]
     image: String
     public: Boolean
-    categores: [Category]
+    categories: [ID]
+  }
+
+  type UserRecipe {
+    id: ID
+    username: String
+    firstName: String
+    lastName: String
+    email: String
+  }
+
+  type Likes {
+    id: ID!
+    username: String
+    likedOn: String
+  }
+
+  type Dislikes {
+    id: ID!
+    username: String
+    dislikedOn: String
+  }
+
+  type Comments {
+    id: ID!
+    username: String
+    comment: String
+    commentedOn: String
   }
 
   type Category {
-    _id: ID
+    id: ID
     name: String
   }
 
@@ -34,6 +61,7 @@ const typeDefs = gql`
     me: User
     allRecipes: [Recipe]
     singleRecipe: Recipe
+    categories: [Category]
   }
 
   type Auth {
@@ -41,17 +69,25 @@ const typeDefs = gql`
     user: User
   }
 
-  input NewRecipeInput {
-    _id: ID
-    createdBy: String
+  type NewRecipe {
+    id: ID
+    createdBy: ID
     title: String
     ingredients: [String]
     instructions: String
-    numberOfLikes: Int
-    numberOfDislikes: Int
-    comments: [String]
     image: String
     public: Boolean
+    categories: [ID]
+  }
+
+  input NewRecipeInput {
+    id: ID
+    title: String
+    ingredients: [String]
+    instructions: String
+    image: String
+    public: Boolean
+    categories: [ID]
   }
 
   type Mutation {
@@ -63,7 +99,8 @@ const typeDefs = gql`
       email: String!
       password: String!
     ): Auth
-    addRecipe(recipe: NewRecipeInput): Recipe!
+    addRecipe(recipe: NewRecipeInput): NewRecipe!
+    removeRecipe(recipeId: ID!, createdBy: String!): Recipe
   }
 `;
 

@@ -30,8 +30,18 @@ const userSchema = new Schema({
     required: true,
     minlength: 5,
   },
-  savedRecipes: [Recipe.schema],
-  createdRecipes: [Recipe.schema],
+  savedRecipes: [
+    {
+      type: Schema.Types.ObjectId,
+      ref: "Recipe"
+    }
+  ],
+  createdRecipes: [
+    {
+      type: Schema.Types.ObjectId,
+      ref: "Recipe"
+    }
+  ],
 });
 
 // set up pre-save middleware to create password
