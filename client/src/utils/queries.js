@@ -39,7 +39,6 @@ query allRecipes {
     }
   }`;
 
-
 export const QUERY_SINGLE_RECIPE = gql`
     query singleRecipe($recipeID: ID) {
         singleRecipe(id: $recipeID) {
