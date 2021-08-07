@@ -10,6 +10,8 @@ import PapriChaat from '../../images/Papri-Chaat.jpg' ;
 
 import { QUERY_RECIPES } from '../../utils/queries';
 
+import Welcome from '../Welcome'
+
 function RecipeList() {
     const mockData = [
       {
@@ -94,6 +96,7 @@ function RecipeList() {
       // );
 
       <div className="my-2">
+          <Welcome />
           <h2>The Foodbook Recipes:</h2>
             <div className="flex-row">
               {recipeData.map((recipe) => (
