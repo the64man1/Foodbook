@@ -13,7 +13,7 @@ const typeDefs = gql`
 
   type Recipe {
     id: ID
-    createdBy: ID
+    createdBy: UserRecipe
     title: String
     ingredients: [String]
     instructions: String
@@ -23,6 +23,14 @@ const typeDefs = gql`
     image: String
     public: Boolean
     categories: [ID]
+  }
+
+  type UserRecipe {
+    id: ID
+    username: String
+    firstName: String
+    lastName: String
+    email: String
   }
 
   type Likes {
