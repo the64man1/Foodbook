@@ -7,6 +7,8 @@ import Signup from "./pages/Signup";
 import Home from "./pages/Home";
 import RecipeList from "./components/RecipeList";
 import Nav from './components/Nav'
+import { Container } from "semantic-ui-react";
+import "semantic-ui-css/semantic.min.css";
 // Construct our main GraphQL API endpoint
 const httpLink = createHttpLink({
 	uri: "/graphql",
@@ -35,7 +37,8 @@ function App() {
 	return (
     <ApolloProvider client={client}>
       <Router>
-        <>
+        <Container>
+          <Nav />
           <Switch>
             <Route exact path="/">
               <Login />
@@ -50,10 +53,8 @@ function App() {
               <RecipeList />
             </Route>
           </Switch>
-        </>
-      </Router>{" "}
-  
-      {/* <Nav /> */}
+        </Container>
+      </Router>
     </ApolloProvider>
   );
 }
