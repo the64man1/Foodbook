@@ -61,9 +61,19 @@ const typeDefs = gql`
     user: User
   }
 
-  input NewRecipeInput {
+  type NewRecipe {
     id: ID
     createdBy: ID
+    title: String
+    ingredients: [String]
+    instructions: String
+    image: String
+    public: Boolean
+    categories: [ID]
+  }
+
+  input NewRecipeInput {
+    id: ID
     title: String
     ingredients: [String]
     instructions: String
@@ -81,7 +91,7 @@ const typeDefs = gql`
       email: String!
       password: String!
     ): Auth
-    addRecipe(recipe: NewRecipeInput): Recipe!
+    addRecipe(recipe: NewRecipeInput): NewRecipe!
   }
 `;
 
