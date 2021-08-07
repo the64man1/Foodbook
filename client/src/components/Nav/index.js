@@ -41,10 +41,6 @@ function Nav() {
           </Menu.Item>
         </Menu.Menu>
       </Menu>
-
-      <Segment>
-        <img src="/images/wireframe/paragraph.png" />
-      </Segment>
     </div>
   );
 }
