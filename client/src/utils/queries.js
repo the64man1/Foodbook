@@ -15,8 +15,8 @@ export const QUERY_USER = gql`
 
 
 
-export const QUERY_RECIPE = gql`
-    query recipe {
+export const QUERY_RECIPES = gql`
+     {
         _id
         title
         categories
