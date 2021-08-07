@@ -18,7 +18,7 @@ class newRecipe extends React.Component {
           createdBy:'',
         };
   
-      this.handleChange = this.handleChange.bind(this);
+      this.handleInputChange = this.handleInputChange.bind(this);
     }
   
     handleInputChange(event) {
@@ -30,28 +30,74 @@ class newRecipe extends React.Component {
             [name]: value
           });
         }
-    
+   
 
     render() {
       return (
         <form>
           <label>
             Recipe name / title:
-            <input type="text"   />
-         
-          <input 
-            name="title"
-            type="submit" 
-            value={this.state.value} 
-            onChange={this.handleChange}/> 
+                <input 
+                    name="title"
+                    type="text" 
+                    value={this.state.value} 
+                    onChange={this.handleChange}/> 
             </label>
             <br />
             <label>
-
-
-                
+            Recipe Category:
+                <input 
+                    name="category"
+                    type="text" 
+                    value={this.state.value} 
+                    onChange={this.handleChange} />
             </label>
+            <br />
+            <label>
+            Ingredients:
+                <textarea
+                    name="ingredients"
+                    type="text" 
+                    value={this.state.value} 
+                    onChange={this.handleChange}/>
+            </label>
+            <br />
+            <label>
+            Instructions:
+                <textarea
+                    name="instructions"
+                    type="text" 
+                    value={this.state.value} 
+                    onChange={this.handleChange}/>
+            </label>
+            <br />
+            <label>
+            Please upload a picture if available:
+                <input 
+                    name="image"
+                    type="file"
+                    value={this.state.value} 
+                    onChange={this.handleChange}/>
+            </label>
+            <br />
+            <label>
+                Please check if you want this recipe to be public for others to see. 
+                <input
+                    name="isPublic"
+                    type="checkbox"
+                    checked={this.state.isPublic}
+                    onChange={this.handleInputChange} />
+            </label>
+            <br />
+            <label>
+                <input
+                    name="isPublic"
+                    type="checkbox"
+                    checked={this.state.isPublic}
+                    onChange={this.handleInputChange} />
+            </label>
+            <input type="submit" value="Submit" />
         </form>
       );
     }
-    }
+   }
