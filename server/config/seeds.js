@@ -18,22 +18,22 @@ db.once("open", async () => {
 
   await User.deleteMany();
 
-  const users = await User.insertMany([
-    {
+  await User.create({
+    
       username: "username1",
       firstName: "Seed",
       lastName: "User",
       email: "none@none.com",
       password: "password",
-    },
-    {
+    });
+    await User.create({
+    
       username: "username2",
       firstName: "Seed2",
       lastName: "User2",
       email: "none2@none.com",
       password: "password",
-    },
-  ]);
+    });
 
   console.log("users seeded");
 
