@@ -1,7 +1,11 @@
 import React from 'react'
+import { QUERY_ME } from '../utils/queries';
+import { useQuery } from '@apollo/client';
 
+function Profile({firstName, lastName,userName, email, Recipe1, Recipe2}) {
+    const { loading, data } = useQuery(QUERY_ME);
+    console.log(data)
 
- function Profile(firstName, lastName,userName, email, Recipe1, Recipe2 ) {
     return (
         <div className="profile">
             <div>

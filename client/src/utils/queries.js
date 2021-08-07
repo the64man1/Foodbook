@@ -1,19 +1,19 @@
 import { gql } from '@apollo/client';
 
-export const QUERY_USER = gql`
+export const QUERY_ME = gql`
     query me {
-        _id
+        me {
         username
-        firstname
+        firstName
         lastName
         email
-        password
-        savedRecipes
-        createdRecipes
-        
-    }`;
-
-
+        savedRecipes {
+            id
+            title
+            image
+        }
+    }
+}`;
 
 export const QUERY_RECIPES = gql`
 query allRecipes {
@@ -42,7 +42,7 @@ query allRecipes {
 export const QUERY_SINGLE_RECIPE = gql`
     query singleRecipe($recipeID: ID) {
         singleRecipe(id: $recipeID) {
-        _id
+        id
         title
         categories
         ingredients
