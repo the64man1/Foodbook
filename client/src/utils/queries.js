@@ -7,10 +7,10 @@ export const QUERY_ME = gql`
         firstName
         lastName
         email
-        savedRecipes {
+        createdRecipes {
             id
             title
-            image
+            instructions
         }
     }
 }`;
