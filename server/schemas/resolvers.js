@@ -23,10 +23,31 @@ const resolvers = {
   },
   Mutation: {
     addUser: async (parent, args) => {
-      const user = await User.create(args);
-      const token = signToken(user);
+      const emailParam = args.email;
+      const usernameParam = args.username;
+      const userEmail = await User.findOne({ emailParam }); // Check for if user's email exists already
+      const username = await User.findOne({ usernameParam }); // Check for if user exists already
 
-      return { token, user };
+      if (userEmail) {
+        const userEmailErrorMsg =
+          "Email taken, please register with a new email account";
+
+        throw new UserInputError(userEmailErrorMsg, {
+          errors: { email: userEmailErrorMsg },
+        });
+      }
+
+      if (username) {
+        const usernameErrorMsg = "Username is taken";
+        throw new UserInputError(usernameErrorMsg, {
+          errors: { username: usernameErrorMsg },
+        });
+      }
+
+      const newUser = await User.create(args);
+      const token = signToken(newUser);
+
+      return { token, user: newUser };
     },
     login: async (parents, { email, password }) => {
       const user = await User.findOne({ email });
@@ -78,9 +99,8 @@ const resolvers = {
     },
     removeRecipe: async (_, { recipeId, createdBy }, context) => {
       const loggedInUserId = context.user._id;
-      
+
       if (loggedInUserId) {
-        
         if (loggedInUserId === createdBy) {
           console.log("User can delete recipe");
           const recipe = await Recipe.findOneAndDelete({
