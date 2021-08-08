@@ -99,7 +99,13 @@ const typeDefs = gql`
       email: String!
       password: String!
     ): Auth
-    addRecipe(recipe: NewRecipeInput): NewRecipe!
+    addRecipe(
+      title: String
+      ingredients: String
+      instructions: String
+      image: String
+      public: Boolean
+    ): NewRecipe!
     removeRecipe(recipeId: ID!, createdBy: String!): Recipe
   }
 `;

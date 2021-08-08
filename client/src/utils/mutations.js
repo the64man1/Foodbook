@@ -42,6 +42,27 @@ export const ADD_USER = gql`
   }
 `;
 
+export const CREATE_RECIPE = gql`
+  mutation createRecipe(
+      $title: String!
+      $ingredients: String!
+      $instructions: String!
+      $image: String!
+      $public: Boolean!
+  ) {
+      addRecipe(
+          title: $title
+          ingredients: $ingredients
+          instructions: $instructions
+          image: $image
+          public: $public
+      ) {
+            title
+            instructions
+      }
+  }
+`;
+
 // export const CREATE_RECIPE = gql`
 //     mutation {
 //         createRecipe(input:{...}) {

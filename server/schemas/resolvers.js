@@ -6,7 +6,7 @@ const resolvers = {
   Query: {
     me: async (parent, args, context) => {
       if (context.user) {
-        const userData = User.findOne({ _id: context.user._id });
+        const userData = User.findOne({ _id: context.user._id }).populate("createdRecipes");
         return userData;
       }
       throw new AuthenticationError("Please log in");
@@ -68,7 +68,7 @@ const resolvers = {
     },
     addRecipe: async (
       parent,
-      { recipe: { title, ingredients, instructions, image, public } },
+      { title, ingredients, instructions, image, public },
       context
     ) => {
       if (context.user) {
