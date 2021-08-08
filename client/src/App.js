@@ -5,6 +5,7 @@ import { setContext } from "@apollo/client/link/context";
 import Login from "./pages/Login";
 import Signup from "./pages/Signup";
 import Home from "./pages/Home";
+import NewRecipe from "./pages/Create";
 import RecipeList from "./components/RecipeList";
 import Nav from './components/Nav';
 import Profile from './pages/Profile'
@@ -59,6 +60,9 @@ function App() {
             </Route>
             <Route path="/recipe-list">
               <RecipeList />
+            </Route>
+            <Route path="/create-recipe">
+              <NewRecipe />
             </Route>
           </Switch>
         </Container>
