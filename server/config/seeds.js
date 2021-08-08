@@ -18,22 +18,21 @@ db.once("open", async () => {
 
   await User.deleteMany();
 
-  await User.create({
-    
-      username: "username1",
-      firstName: "Seed",
-      lastName: "User",
-      email: "none@none.com",
-      password: "password",
-    });
-    await User.create({
-    
-      username: "username2",
-      firstName: "Seed2",
-      lastName: "User2",
-      email: "none2@none.com",
-      password: "password",
-    });
+  const user1 = await User.create({
+    username: "user1",
+    firstName: "Seed",
+    lastName: "User",
+    email: "user1@email.com",
+    password: "password",
+  });
+
+  const user2 = await User.create({
+    username: "user2",
+    firstName: "Seed2",
+    lastName: "User2",
+    email: "user2@email.com",
+    password: "password",
+  });
 
   console.log("users seeded");
 
@@ -41,7 +40,7 @@ db.once("open", async () => {
 
   const recipes = await Recipe.insertMany([
     {
-      createdBy: users[0]._id,
+      createdBy: user1._id,
       title: "Good food",
       ingredients: ["onions", "celery"],
       instructions: "Cook this",
@@ -59,7 +58,7 @@ db.once("open", async () => {
       categories: categories[2]._id,
     },
     {
-      createdBy: users[0]._id,
+      createdBy: user2._id,
       title: "Papri Chaat(Indian Street Snack)",
       ingredients: [
         "Chicpeas",
@@ -83,7 +82,7 @@ db.once("open", async () => {
       categories: categories[1]._id,
     },
     {
-      createdBy: users[0]._id,
+      createdBy: user1._id,
       title: "Beef-Tataki",
       ingredients: [
         "beef cubes",
@@ -95,10 +94,7 @@ db.once("open", async () => {
       ],
       instructions:
         "Grill beef and cut into thinslices, slice daikon and cumbers into thin slices, pour soy sauce into small individual servings",
-      likes: [
-        { username: "username1", likedOn: new Date().toISOString() }
-        
-      ],
+      likes: [{ username: "username1", likedOn: new Date().toISOString() }],
       dislikes: [{ username: "username2", likedOn: new Date().toISOString() }],
       comments: [
         {
@@ -117,7 +113,7 @@ db.once("open", async () => {
       categories: categories[1]._id,
     },
     {
-      createdBy: users[0]._id,
+      createdBy: user2._id,
       title: "Breakfast Tacos",
       ingredients: [
         "butter",
@@ -128,13 +124,11 @@ db.once("open", async () => {
       ],
       instructions:
         " Cook potatos in microwave, fry potatos with butter and make them slightly brown, add salt and pepper, add eggs to potato, heat tortillas in microwave for 45 seconds.",
-        likes: [
-          { username: "username1", likedOn: new Date().toISOString() }
-          
-        ],
-      
+      likes: [{ username: "username1", likedOn: new Date().toISOString() }],
+
       dislikes: [{ username: "username2", likedOn: new Date().toISOString() }],
-      comments: [{
+      comments: [
+        {
           username: "username1",
           comment: "username1 liked it",
           commentedOn: new Date().toISOString(),
@@ -143,14 +137,14 @@ db.once("open", async () => {
           username: "username2",
           comment: "username2 disliked it",
           commentedOn: new Date().toISOString(),
-        }
+        },
       ],
       image: "Breakfast-Tacos.jpg",
       public: true,
       categories: categories[0]._id,
     },
     {
-      createdBy: users[0]._id,
+      createdBy: user1._id,
       title: "Dinner Tonight: Fish with Saffron-Tomato Cous Cous Recipe",
       ingredients: [
         " fillets white fish",
@@ -187,7 +181,7 @@ db.once("open", async () => {
       categories: categories[2]._id,
     },
     {
-      createdBy: users[0]._id,
+      createdBy: user2._id,
       title: "Pistachio Cake",
       ingredients: [
         "1 box White Cake Mix",
@@ -200,10 +194,10 @@ db.once("open", async () => {
       ],
       instructions:
         " Preheat oven to 350 degrees. Grease and flour bundt pan, Mix all ingredients but chocolate Syrup, Bake for 1 hour at 350 degrees.",
-        likes: [
-          { username: "username1", likedOn: new Date().toISOString() },
-          { username: "username2", likedOn: new Date().toISOString() },
-        ],
+      likes: [
+        { username: "username1", likedOn: new Date().toISOString() },
+        { username: "username2", likedOn: new Date().toISOString() },
+      ],
       dislikes: [],
       comments: [
         {
@@ -222,17 +216,11 @@ db.once("open", async () => {
       categories: categories[6]._id,
     },
     {
-      createdBy: users[0]._id,
+      createdBy: user1._id,
       title: " ",
-      ingredients: [
-        "2 Tabsps flour",
-
-      ],
-      instructions:
-        "C ",
-      likes: [
-        { username: "username1", likedOn: new Date().toISOString() }
-      ],
+      ingredients: ["2 Tabsps flour"],
+      instructions: "C ",
+      likes: [{ username: "username1", likedOn: new Date().toISOString() }],
       dislikes: [{ username: "username2", likedOn: new Date().toISOString() }],
       comments: [
         {
@@ -251,17 +239,11 @@ db.once("open", async () => {
       categories: categories[1]._id,
     },
     {
-      createdBy: users[0]._id,
+      createdBy: user2._id,
       title: "Dinner Rolls ",
-      ingredients: [
-        "melted butter","1 pound fresh pizza dough"
-
-      ],
-      instructions:
-        "Cook in the oven at 320 F for twenty minutes ",
-      likes: [
-        { username: "username1", likedOn: new Date().toISOString() }
-      ],
+      ingredients: ["melted butter", "1 pound fresh pizza dough"],
+      instructions: "Cook in the oven at 320 F for twenty minutes ",
+      likes: [{ username: "username1", likedOn: new Date().toISOString() }],
       dislikes: [{ username: "username2", likedOn: new Date().toISOString() }],
       comments: [
         {
@@ -280,19 +262,19 @@ db.once("open", async () => {
       categories: categories[4]._id,
     },
     {
-      createdBy: users[0]._id,
+      createdBy: user1._id,
       title: "Strawberry Hazelnut Salad ",
       ingredients: [
-        "8 oz salad green", "8 oz strawberries", "2 oz Hazelnuts", "3 oz Balsamic Vinegar", "1 tbs sugar",
+        "8 oz salad green",
+        "8 oz strawberries",
+        "2 oz Hazelnuts",
+        "3 oz Balsamic Vinegar",
+        "1 tbs sugar",
         "4 oz Extra Virgin Olive Oil",
-        "4 x salt and pepper"
-
+        "4 x salt and pepper",
       ],
-      instructions:
-        "mix evrything and sprinke hazlenut at the top  ",
-      likes: [
-        { username: "username1", likedOn: new Date().toISOString() }
-      ],
+      instructions: "mix evrything and sprinke hazlenut at the top  ",
+      likes: [{ username: "username1", likedOn: new Date().toISOString() }],
       dislikes: [{ username: "username2", likedOn: new Date().toISOString() }],
       comments: [
         {
@@ -311,13 +293,13 @@ db.once("open", async () => {
       categories: categories[5]._id,
     },
     {
-      createdBy: users[0]._id,
+      createdBy: user2._id,
       title: " Pasta Frittata Recipe",
       ingredients: [
         "2 cups leftover pasta",
         "4 eggs beaten",
         "2 tablespoons butter",
-        "1/2 cup whichever cheese the pasta called for"
+        "1/2 cup whichever cheese the pasta called for",
       ],
       instructions:
         " Preheat the broiler on high with the rack on the second-highest shelf.\
@@ -329,11 +311,9 @@ db.once("open", async () => {
         cheese is melted and golden brown and eggs have set completely. \
         Remove pan from oven, loosen frittata from the bottom, cover the pan with a plate, \
         invert the frittata onto it, then flip the frittata cheese-side up using a spatula \
-        Allow to cool slightly, then slice into wedges or squares and serve. " ,
+        Allow to cool slightly, then slice into wedges or squares and serve. ",
 
-      likes: [
-        { username: "username1", likedOn: new Date().toISOString() }
-      ],
+      likes: [{ username: "username1", likedOn: new Date().toISOString() }],
       dislikes: [{ username: "username2", likedOn: new Date().toISOString() }],
       comments: [
         {
@@ -353,7 +333,7 @@ db.once("open", async () => {
     },
 
     {
-      createdBy: users[0]._id,
+      createdBy: user1._id,
       title: "Guacamole Pasta ",
       ingredients: [
         "1/2 avocado",
@@ -361,18 +341,14 @@ db.once("open", async () => {
         "1/4 scallion",
         "1 red tomato",
         "1/4 splash lemon juiced",
-        "salt to taste"
-        
-
+        "salt to taste",
       ],
       instructions:
         " Peel and finely dice the avocado and thinly dice the tomato.\
          Put them all in a bowl. Add the lemon juice and a pinch of salt and mix well.\
         Once the pasta is done drain it and season with the 'guacamole'. \
          You can enjoy it hot or let it chill for a few hours in the fridge. It's always delicious!  ",
-      likes: [
-        { username: "username1", likedOn: new Date().toISOString() }
-      ],
+      likes: [{ username: "username1", likedOn: new Date().toISOString() }],
       dislikes: [{ username: "username2", likedOn: new Date().toISOString() }],
       comments: [
         {
@@ -391,7 +367,7 @@ db.once("open", async () => {
       categories: categories[2]._id,
     },
     {
-      createdBy: users[0]._id,
+      createdBy: user2._id,
       title: "Rosemary Ginger Fizz ",
       ingredients: [
         "1 1/4 Ounce Bombay East Gin",
@@ -399,16 +375,14 @@ db.once("open", async () => {
         "1/4 Ounce Agave Nectar",
         "1/2 Ounce fresh squeezed lemon juice",
         "2 sprigs fresh rosemary",
-        "2 Ounces Ginger Beer"   
+        "2 Ounces Ginger Beer",
       ],
       instructions:
         " Add fresh squeezed lemon juice and rosemary into shaker and muddle. \
         Add Gin, Ginger Liqueur, and agave nectar into shaker with ice and shake vigorously.\
         Fill rocks glass with fresh ice Double strain contents of shaker into rocks glass. \
         Float 2 oz. of ginger beer and garnish with a fresh rosemary sprig.  ",
-      likes: [
-        { username: "username1", likedOn: new Date().toISOString() }
-      ],
+      likes: [{ username: "username1", likedOn: new Date().toISOString() }],
       dislikes: [{ username: "username2", likedOn: new Date().toISOString() }],
       comments: [
         {
@@ -427,10 +401,10 @@ db.once("open", async () => {
       categories: categories[4]._id,
     },
     {
-      createdBy: users[0]._id,
+      createdBy: user1._id,
       title: "Tomato Soup ",
       ingredients: [
-         "1 bell pepper",
+        "1 bell pepper",
         "1 small celery",
         "some cooking oil",
         "2 carrots",
@@ -440,9 +414,7 @@ db.once("open", async () => {
         "1 parsnip",
         "10 tablespoons semolina",
         "1 tablespoon sugar",
-        "750 milliliters tomato juice" , 
-        
-
+        "750 milliliters tomato juice",
       ],
       instructions:
         " It is very easy, first wash the vegetables and put it in a large pot (4 l).\
@@ -460,9 +432,7 @@ db.once("open", async () => {
         (Will this make more fluffy Them). Then add Them to the soup.\
         Chop the parsley and put in the soup.\
         Enjoy! ",
-      likes: [
-        { username: "username1", likedOn: new Date().toISOString() }
-      ],
+      likes: [{ username: "username1", likedOn: new Date().toISOString() }],
       dislikes: [{ username: "username2", likedOn: new Date().toISOString() }],
       comments: [
         {
@@ -481,7 +451,7 @@ db.once("open", async () => {
       categories: categories[3]._id,
     },
     {
-      createdBy: users[0]._id,
+      createdBy: user2._id,
       title: " Cake De Naranja",
       ingredients: [
         "½ cups butter",
@@ -490,8 +460,7 @@ db.once("open", async () => {
         "1 cup flour",
         "1 cup buttermilk",
         "1 orange rind",
-        "1 teaspoon vanilla", 
-        
+        "1 teaspoon vanilla",
       ],
       instructions:
         " Mix and sift flour and salt. Cream butter and sugar, add beaten egg.\
@@ -499,9 +468,7 @@ db.once("open", async () => {
         add vanilla and grated orange rind. Mix until blended.\
         Bake in moderate oven for 30 to 40 minutes. PREPARE: juice of I orange, juice of 1 lemon, \
         cup sugar. Mix this well and when cake is done and cool pour over cake.",
-      likes: [
-        { username: "username1", likedOn: new Date().toISOString() }
-      ],
+      likes: [{ username: "username1", likedOn: new Date().toISOString() }],
       dislikes: [{ username: "username2", likedOn: new Date().toISOString() }],
       comments: [
         {
@@ -520,7 +487,7 @@ db.once("open", async () => {
       categories: categories[6]._id,
     },
     {
-      createdBy: users[0]._id,
+      createdBy: user1._id,
       title: "Lamb Kebab Burger ",
       ingredients: [
         "2 tbsp fat-free yogurt",
@@ -531,9 +498,7 @@ db.once("open", async () => {
         "2 sesame seed burger buns",
         "1 tomato , sliced",
         "20g gherkins , sliced",
-        "1 red chilli , finely sliced " 
-        
-
+        "1 red chilli , finely sliced ",
       ],
       instructions:
         "Combine the yogurt with the mayonnaise and grated garlic in a small bowl.\
@@ -542,9 +507,7 @@ db.once("open", async () => {
           the burger buns. Divide the sliced tomato, sliced gherkins,\
         the burgers, some garlic sauce, chilli and the lettuce leaves between each burger bun, \
         then enjoy immediately. ",
-      likes: [
-        { username: "username1", likedOn: new Date().toISOString() }
-      ],
+      likes: [{ username: "username1", likedOn: new Date().toISOString() }],
       dislikes: [{ username: "username2", likedOn: new Date().toISOString() }],
       comments: [
         {
@@ -558,12 +521,12 @@ db.once("open", async () => {
           commentedOn: new Date().toISOString(),
         },
       ],
-        image: "lamb-kebab.jpg ",
-        public: true,
-        categories: categories[1]._id,
-      },
-         {
-      createdBy: users[0]._id,
+      image: "lamb-kebab.jpg ",
+      public: true,
+      categories: categories[1]._id,
+    },
+    {
+      createdBy: user2._id,
       title: "Beef Cottage Pie ",
       ingredients: [
         "1 pound lean ground beef",
@@ -576,8 +539,7 @@ db.once("open", async () => {
         "1 cup frozen root vegetables",
         "1 cup beef gravy",
         "3 cups potatoes",
-        "3 tablespoons parmesan cheese"
-
+        "3 tablespoons parmesan cheese",
       ],
       instructions:
         "Preheat oven to 375 degrees. In a large skillet, heat oil. Add onions, celery, \
@@ -594,10 +556,8 @@ db.once("open", async () => {
         Bake for 25-30 minutes.\
         Turn the oven broiler on and brown the top of the Shepherds Pie until it turns an even golden brown color.\
         Remove from the oven and allow to set for 5-10 minutes before serving. Enjoy! ",
-         
-      likes: [
-        { username: "username1", likedOn: new Date().toISOString() }
-      ],
+
+      likes: [{ username: "username1", likedOn: new Date().toISOString() }],
       dislikes: [{ username: "username2", likedOn: new Date().toISOString() }],
       comments: [
         {
@@ -610,12 +570,11 @@ db.once("open", async () => {
           comment: "username2 disliked it",
           commentedOn: new Date().toISOString(),
         },
-      
-    ],
-    image: "Beef-Pie.jpg ",
-    public: true,
-    categories: categories[1]._id,
-  },
+      ],
+      image: "Beef-Pie.jpg ",
+      public: true,
+      categories: categories[1]._id,
+    },
   ]);
 
   console.log("recipes seeded");
