@@ -5,7 +5,7 @@ import { QUERY_USER} from '../utils/queries';
 
 
 
-class newRecipe extends React.Component {
+class NewRecipe extends React.Component {
     constructor(props) {
       super(props);
       this.state = {
@@ -101,3 +101,5 @@ class newRecipe extends React.Component {
       );
     }
    }
+
+   export default NewRecipe;
