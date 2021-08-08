@@ -21,21 +21,9 @@ function Nav() {
           as={Link}
           to="/"
         />
-        <Menu.Item
-          name="signup"
-          active={activeItem === "signup"}
-          onClick={handleItemClick}
-          as={Link}
-          to="/signup"
-        />
-        <Menu.Item
-          name="login"
-          active={activeItem === "login"}
-          onClick={handleItemClick}
-          as={Link}
-          to="/login"
-        />
-        <Menu.Item
+        {Auth.loggedIn() ? (
+          <>
+          <Menu.Item
           name="create-recipe"
           active={activeItem === "create-recipe"}
           onClick={handleItemClick}
@@ -49,6 +37,29 @@ function Nav() {
           as={Link}
           to="/profile"
         />
+        <Menu.Item
+          name="logout"
+          onClick={Auth.logout}
+          to="/"
+        />
+        </>
+        ) : (
+          <>
+          <Menu.Item
+          name="signup"
+          active={activeItem === "signup"}
+          onClick={handleItemClick}
+          as={Link}
+          to="/signup"
+        />
+        <Menu.Item
+          name="login"
+          active={activeItem === "login"}
+          onClick={handleItemClick}
+          as={Link}
+          to="/login"
+        /></>
+        )}
         <Menu.Menu position="right">
           <Menu.Item>
             <Input icon="search" placeholder="Search..." />
