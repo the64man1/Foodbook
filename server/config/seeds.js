@@ -217,9 +217,25 @@ db.once("open", async () => {
     },
     {
       createdBy: user1._id,
-      title: " ",
-      ingredients: ["2 Tabsps flour"],
-      instructions: "C ",
+      title: "Pasta With Tuna ",
+      ingredients: [
+        "2 tablespoons flour",
+        "1 cup green onions",
+        "1.25 cups non-fat milk",
+        "2 tablespoons olive oil",
+        "2 tablespoons onion",
+        "¼ cups parmesan cheese",
+        "1 cup fresh parsley",
+        "8 ounces pasta",
+        "1 cup frozen peas",
+        "6.5 ounces water-packed tun"
+      ],
+      instructions: "Cook pasta in a large pot of boiling water until al dente.\
+      Drain and return to warm pot. Put olive oil in saucepan and add onion.\
+      Saute until transparent. Stir in flour and cook for a few seconds and then \
+      whisk in milk. Stir constantly until this thickens. Add peas, tuna (shredded into chunks,)\
+       parsley, green onions, cheese and hot pepper sauce. Pour over pasta and stir gently to mix.\
+      Serve at once. ",
       likes: [{ username: "username1", likedOn: new Date().toISOString() }],
       dislikes: [{ username: "username2", likedOn: new Date().toISOString() }],
       comments: [
@@ -234,7 +250,7 @@ db.once("open", async () => {
           commentedOn: new Date().toISOString(),
         },
       ],
-      image: "tuna.jpg",
+      image: "pasta-with-tuna.jpg",
       public: true,
       categories: categories[1]._id,
     },
@@ -257,7 +273,7 @@ db.once("open", async () => {
           commentedOn: new Date().toISOString(),
         },
       ],
-      image: "Dinner-Rolles",
+      image: "Dinner-Rolles.jpg",
       public: true,
       categories: categories[4]._id,
     },
@@ -288,7 +304,7 @@ db.once("open", async () => {
           commentedOn: new Date().toISOString(),
         },
       ],
-      image: "strawberry-Hazlenut-Salad.jpg",
+      image: "strawberry-Hazelnut-Salad.jpg",
       public: true,
       categories: categories[5]._id,
     },
@@ -327,7 +343,7 @@ db.once("open", async () => {
           commentedOn: new Date().toISOString(),
         },
       ],
-      image: " Pasta-Frittata.jpg",
+      image: "Pasta-Frittata.jpg",
       public: true,
       categories: categories[5]._id,
     },
