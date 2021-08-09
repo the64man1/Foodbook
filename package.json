@@ -26,6 +26,8 @@
   "dependencies": {
     "@material-ui/core": "^4.12.3",
     "@material-ui/icons": "^4.11.2",
+    "apollo-link": "^1.2.14",
+    "apollo-link-error": "^1.1.13",
     "semantic-ui-css": "^2.4.1",
     "semantic-ui-react": "^2.0.3"
   }
