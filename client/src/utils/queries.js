@@ -8,7 +8,6 @@ export const QUERY_ME = gql`
         lastName
         email
         createdRecipes {
-            id
             title
             instructions
         }
