@@ -106,7 +106,7 @@ const typeDefs = gql`
       image: String
       public: Boolean
     ): NewRecipe!
-    removeRecipe(recipeId: ID!, createdBy: String!): Recipe
+    deleteRecipe(recipeId: ID!): Recipe
   }
 `;
 

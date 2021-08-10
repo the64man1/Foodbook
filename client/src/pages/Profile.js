@@ -22,6 +22,8 @@ function Profile() {
                 <Card.Header>Created Recipes</Card.Header>
                 {data.me.createdRecipes.map((recipe) => {
                     return <CreatedRecipes
+                      key={recipe.id}
+                      id={recipe.id}
                       title={recipe.title}
                       instructions ={recipe.instructions}
                     />

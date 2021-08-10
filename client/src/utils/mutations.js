@@ -132,8 +132,10 @@ export const CREATE_RECIPE = gql`
 // `;
 
 export const DELETE_RECIPE = gql`
-  mutation ($id: ID) {
-    deleteRecipe(id: $id)
+  mutation ($id: ID!) {
+    deleteRecipe(recipeId: $id) {
+        id
+    }
   }
 `;
 
