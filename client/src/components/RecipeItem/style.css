@@ -1,7 +1,17 @@
 .card {
-    float:left; 
-    width:23%; 
     
+    width: 600px;
     margin-left: 5%;
     margin-right: 5%;
+    
+}
+
+.card-body {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.card-body h2 {
+    text-align: center;
 }
