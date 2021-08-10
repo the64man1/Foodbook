@@ -7,6 +7,7 @@ import guacamolePasta from '../../images/Guacamole-Pasta.jpg' ;
 import breakfastTaco from '../../images/Breakfast-Tacos.jpg' ; 
 import goodFood from '../../images/good-food.jpg' ; 
 import PapriChaat from '../../images/Papri-Chaat.jpg' ; 
+import "../../index.css";
 
 import { QUERY_RECIPES } from '../../utils/queries';
 
@@ -98,8 +99,8 @@ function RecipeList() {
       <div className="my-2">
           <Welcome />
           <h2>The Foodbook Recipes:</h2>
-            <div className="flex-row">
-              {recipeData.map((recipe) => (
+            <div className="flex-row" style={{display: "flex"}}>
+              {mockData.map((recipe) => (
                 <RecipeItem
                   key={recipe.id}
                   id={recipe.id}
