@@ -1,1 +1,16 @@
 /* TODO: Write something here */
+#root{
+    background: #d6d1d4;
+    min-height: 100vh;
+}
+
+.card, .ui.pointing.menu {
+    background: #41cc41;
+    
+}
+
+.ui.pointing.menu a.item {
+    color: white;
+    font-weight: 600;
+    font-size: larger;
+}
