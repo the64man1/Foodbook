@@ -18,7 +18,8 @@ function RecipeItem(recipe) {
     return (
       <div className="card">
         <div className="card-body">
-        <img width="200" height="200" src={`/images/${image}` }/>
+        {/* <img width="200" height="200" src={`/images/${image}` }/> */}
+        <img width="200" height="200" src={`${image}` }/>
           <h2 className="card-title">{title}</h2>
           <h5><u>Ingredients:</u></h5>
           {ingredients.map((ingredient) => {

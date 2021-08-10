@@ -12,7 +12,7 @@ function Nav() {
   const handleItemClick = (e, { name }) => setActiveItem(name);
 
   return (
-    <div>
+    <div style={{padding: "2rem 0"}}>
       <Menu pointing>
         <Menu.Item
           name="foodbook"

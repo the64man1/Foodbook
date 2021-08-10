@@ -4,6 +4,7 @@ import { useHistory } from 'react-router-dom';
 import { CREATE_RECIPE } from '../utils/mutations';
 import { QUERY_ME } from '../utils/queries';
 import { Input, TextareaAutosize, Button } from '@material-ui/core';
+import FileBase from "react-file-base64";
 
 const NewRecipe = () => {
 
@@ -92,12 +93,13 @@ const NewRecipe = () => {
             <br />
             <label>
             Please upload a picture if available:
-                <Input 
+                {/* <Input 
                     className="form-control"
                     name="image"
                     type="file"
                     id="image"   
-                    onChange={handleChange}/>
+                    onChange={handleChange}/> */}
+                    <FileBase type="file" multiple={false} onDone={({ base64 }) => setFormData({ ...formData, image: base64 })} />
             </label>
             <br />
             {/* <label>
