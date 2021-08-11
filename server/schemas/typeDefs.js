@@ -101,7 +101,7 @@ const typeDefs = gql`
     ): Auth
     addRecipe(
       title: String
-      ingredients: String
+      ingredients: [String]
       instructions: String
       image: String
       public: Boolean
