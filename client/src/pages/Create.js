@@ -3,6 +3,7 @@ import { useMutation, useQuery } from '@apollo/client';
 import { useHistory } from 'react-router-dom';
 import { CREATE_RECIPE } from '../utils/mutations';
 import { QUERY_ME } from '../utils/queries';
+import IngredientsList from '../components/IngredientsList';
 import { Input, TextareaAutosize, Button } from '@material-ui/core';
 import FileBase from "react-file-base64";
 
@@ -23,15 +24,18 @@ const NewRecipe = () => {
         //isPublic:'',
         //createdBy:''
     });
-    let history = useHistory();
 
     const handleFormSubmit = async (event) => {
         event.preventDefault();
-        console.log(formData)
+        console.log(formData);
+        const ingredients = JSON.parse(localStorage.getItem('ingredients'));
+        console.log(ingredients);
+        localStorage.removeItem('ingredients');
+        console.log(formData.title)
         const mutationResponse = await createRecipe({
           variables: {
             title: formData.title,
-            ingredients: formData.ingredients,
+            ingredients: ingredients,
             //categories: '6103400b528a0361e46c9738',
             instructions: formData.instructions,
             image: formData.image,
@@ -49,6 +53,24 @@ const NewRecipe = () => {
         const { name, value } = event.target;
         setFormData({ ...formData, [name]: value });
     };  
+
+    const addIngredient = (event) => {
+      if(localStorage.getItem('ingredients') === null) {
+        let ingredients = [];
+        ingredients.push(formData.ingredients)
+        localStorage.setItem('ingredients', JSON.stringify(ingredients))
+        console.log(localStorage.getItem('ingredients'))
+        setFormData( { ...formData, ingredients: ''} );
+        console.log(formData.ingredients);
+      } else {
+        let ingredients = JSON.parse(localStorage.getItem('ingredients'));
+        ingredients.push(formData.ingredients)
+        console.log(ingredients)
+        setFormData( { ...formData, ingredients: ''} );
+        console.log(formData.ingredients);
+        localStorage.setItem('ingredients', JSON.stringify(ingredients));
+      };
+    }
 
     return (
         <form onSubmit={handleFormSubmit}>
@@ -73,12 +95,19 @@ const NewRecipe = () => {
             <br /> */}
             <label>
             Ingredients:
-                <TextareaAutosize
+                <Input
                      className="form-control"
                      name="ingredients"
                      type="ingredients"
-                     id="ingredients" 
-                    onChange={handleChange}/>
+                     id="ingredients"
+                     value={formData.ingredients}
+                     onChange={handleChange}/>
+                    <Button onClick={addIngredient}>Add Ingredient</Button>
+            </label>
+            <br />
+            <label>
+            Ingredients List:
+                <IngredientsList />
             </label>
             <br />
             <label>
