@@ -36,7 +36,7 @@ function Login(props) {
         <h2>Login</h2>
 
 
-        <form className ="form-inline" onSubmit={handleFormSubmit}>
+        <form className ="form-group" onSubmit={handleFormSubmit}>
           <div className="flex-row space-between my-2">
             <label htmlFor="email" className="mr-sm-2">Email address:</label>
             <input
