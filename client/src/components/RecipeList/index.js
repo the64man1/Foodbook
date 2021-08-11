@@ -99,8 +99,8 @@ function RecipeList() {
       <div className="my-2">
           <Welcome />
           <h2>The Foodbook Recipes:</h2>
-            <div className="flex-row" style={{display: "flex"}}>
-              {mockData.map((recipe) => (
+            <div className="flex-row" >
+              {recipeData.map((recipe) => (
                 <RecipeItem
                   key={recipe.id}
                   id={recipe.id}
