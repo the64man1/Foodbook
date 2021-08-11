@@ -14,3 +14,17 @@
     font-weight: 600;
     font-size: larger;
 }
+
+.container.my-1 {
+    width: 70%
+}
+
+.btn.form-inline.btn-primary.mb-2 {
+    background: #41cc41;
+    border: unset;
+}
+
+.btn.btn-primary.mb-2 {
+    background: #41cc41;
+    border: unset;
+}
