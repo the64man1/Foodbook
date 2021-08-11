@@ -45,7 +45,7 @@ export const ADD_USER = gql`
 export const CREATE_RECIPE = gql`
   mutation createRecipe(
       $title: String!
-      $ingredients: String!
+      $ingredients: [String!]
       $instructions: String!
       $image: String!
       $public: Boolean!
@@ -59,6 +59,7 @@ export const CREATE_RECIPE = gql`
       ) {
             title
             instructions
+            ingredients
       }
   }
 `;
