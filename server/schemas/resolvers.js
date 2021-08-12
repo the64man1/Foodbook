@@ -97,32 +97,7 @@ const resolvers = {
       // Throw error if user token is not provided
       throw new Error("Authorization token must be provided");
     },
-    // removeRecipe: async (_, { recipeId, createdBy }, context) => {
-    //   const loggedInUserId = context.user._id;
-
-    //   if (loggedInUserId) {
-    //     if (loggedInUserId === createdBy) {
-    //       console.log("User can delete recipe");
-    //       const recipe = await Recipe.findOneAndDelete({
-    //         _id: recipeId,
-    //         createdBy: context.user._id,
-    //       });
-
-    //       await User.findOneAndUpdate(
-    //         { _id: context.user._id },
-    //         { $pull: { createdRecipes: recipe._id } }
-    //       );
-
-    //       return recipe;
-    //     }
-
-    //     // Throw error if user is not the creator
-    //     throw new Error("You are not the creator of this recipe");
-    //   }
-
-    //   // Throw error if user token is not provided
-    //   throw new Error("Authorization token must be provided");
-    // },
+    //TODO make delete recipe check if logged in user = recipe.createdBy
     deleteRecipe: async (parents, { recipeId }, context) => {
       if(context.user) {
         const recipe = await Recipe.findOneAndDelete({
