@@ -13,6 +13,11 @@ import { Container } from "semantic-ui-react";
 import "semantic-ui-css/semantic.min.css";
 import { onError } from 'apollo-link-error';
 import { ApolloLink } from 'apollo-link';
+// front end
+import 'materialize-css/dist/css/materialize.min.css'
+import 'materialize-css';
+
+//import { Navbar , NavItem , Icon } from 'react-materialize';
 
 const errorLink = onError(({ graphQLErrors, networkError }) => {
   if (graphQLErrors) {

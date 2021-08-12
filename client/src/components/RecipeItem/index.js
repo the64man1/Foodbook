@@ -1,5 +1,10 @@
+/* eslint-disable jsx-a11y/alt-text */
 import React from 'react';
 import "./style.css"; 
+// front end
+import 'materialize-css/dist/css/materialize.min.css'
+import 'materialize-css';
+//import { Card , CardTitle, Icon, Row, Col } from 'react-materialize';
 
 function RecipeItem(recipe) {
     const {
@@ -31,5 +36,33 @@ function RecipeItem(recipe) {
       </div>
     );
 }
+
+
+/* <Row>
+  <Col
+    m={6}
+    s={12}
+  >
+    <Card
+      closeIcon={<Icon>close</Icon>}
+      header={<CardTitle image={`${image}` } reveal waves="light"/>}
+      reveal={<p>Ingredients:</p>
+        ingredients.map((ingredient) => {
+          return <p>{ingredient}</p>
+        )}
+        
+      }
+      revealIcon={<Icon>more_vert</Icon>}
+      title="Card Title"
+    >
+      <p>
+        <a href="#">
+          This is a link
+        </a>
+      </p>
+    </Card>
+  </Col>
+</Row> */
+
 
 export default RecipeItem;
