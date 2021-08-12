@@ -2,8 +2,6 @@ const bcrypt = require("bcrypt");
 const mongoose = require("mongoose");
 const { Schema } = mongoose;
 
-const Recipe = require("./Recipe");
-
 const userSchema = new Schema({
   username: {
     type: String,
