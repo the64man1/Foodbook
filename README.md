@@ -5,9 +5,11 @@
     
 This application allows users to view a collection (the Foodbook) of user-generated recipes, and create an account to add their own recipes to the Foodbook.
 
-This project was completed using the MERN stack: React provides the front-end JavaScript library, MongoDB (with Mongoose as the ODM library) is the NoSQL database to store recipes and user data, Express is used for handling routing, and NodeJS provides the runtime environment. Additionally, we used Graphql for handling API requests, Semantic UI as the component library for styling, and JWT for authentication.
+This project was completed using the MERN stack: React provides the front-end JavaScript library, MongoDB (with Mongoose as the ODM library) is the NoSQL database to store recipes and user data, Express is used for handling routing, and NodeJS provides the runtime environment. Additionally, we used Graphql for handling API requests, Semantic UI as the component library for styling, JWT for authentication, and bcrypt for hashing passwords.
 
 In completing this project, we learned how to build a full-stack MERN application from scratch - from structuring the models and API request routes on the back-end, to using React components and hooks to handle user-input on the front-end.
+
+![Foodbook](https://user-images.githubusercontent.com/74144055/129276692-d35d5586-6ac6-47f2-8cfc-aeb9a4a7326f.gif)
    
 ## Table of Contents
     
@@ -15,14 +17,13 @@ In completing this project, we learned how to build a full-stack MERN applicatio
 - [Usage](#usage)
 - [License](#license)
 - [Contributing](#contributing)
-- [Tests](#tests)
 - [Questions](#questions)
     
 ## Installation
     
 To use the Foodbook, clone the repository by running "git clone `git@github.com:the64man1/Foodbook.git`' on your console. 
 
-This application requires the use of a .env file to store working environment variables for use with authentication, token and session creation, so users must create a .env file in the parent server folder and create two variables: `TODO`
+This application requires the use of a .env file to store working environment variables for use with authentication, token and session creation. Users must create a .env file in the parent server folder and create two variables: `secret="<your-secret>"` and `expriation="2h"`, where `<your-secret>` can be customized for use with bcrpyt hashing, and `2h` can be changed to different time intervals for how long a user session will last before logoff.
 
 Then from the parent folder, use the command 'npm install' to install the dependencies. Then run 'npm run seed' to populate the Foodbook with recipes. Then you can run the command 'npm run develop' to test the functionality of the Foodbook on your port localhost:3000. 
 
@@ -44,4 +45,41 @@ If you would like to contribute to this project by adding sections or modifying 
     
 ## Questions
     
-For questions, you can contact the contributors through GitHub
+For questions, you can contact the contributors through GitHub:
+
+<table class="tg">
+<thead>
+  <tr>
+    <th class="tg-hyan">Letter</th>
+    <th class="tg-hyan">Name</th>
+    <th class="tg-hyan">GitHub</th>
+  </tr>
+</thead>
+<tbody>
+  <tr>
+    <td class="tg-0lax">A</td>
+    <td class="tg-0lax">Max Quintanilla</td>
+    <td class="tg-0lax">the64man1</td>
+  </tr>
+  <tr>
+    <td class="tg-0lax">B</td>
+    <td class="tg-0lax">Katherine Seeburger</td>
+    <td class="tg-0lax">kthendavid04</td>
+  </tr>
+  <tr>
+    <td class="tg-0lax">C</td>
+    <td class="tg-0lax">Christian Louis</td>
+    <td class="tg-0lax">Clouis12</td>
+  </tr>
+  <tr>
+    <td class="tg-0lax">D</td>
+    <td class="tg-0lax">Syed Rizvi</td>
+    <td class="tg-0lax">rizvi5a</td>
+  </tr>
+  <tr>
+    <td class="tg-0lax">E</td>
+    <td class="tg-0lax">Cristobal Canales</td>
+    <td class="tg-0lax">CrisC3</td>
+  </tr>
+</tbody>
+</table>
