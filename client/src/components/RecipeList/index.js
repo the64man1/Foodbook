@@ -8,6 +8,7 @@ import breakfastTaco from '../../images/Breakfast-Tacos.jpg' ;
 import goodFood from '../../images/good-food.jpg' ; 
 import PapriChaat from '../../images/Papri-Chaat.jpg' ; 
 import "../../index.css";
+import "./style.css"; 
 
 import { QUERY_RECIPES } from '../../utils/queries';
 
@@ -99,7 +100,7 @@ function RecipeList() {
       <div className="my-2">
           <Welcome />
           <h2>The Foodbook Recipes:</h2>
-            <div className="flex-row" >
+            <div className="cjlFlex" >
               {recipeData.map((recipe) => (
                 <RecipeItem
                   key={recipe.id}
