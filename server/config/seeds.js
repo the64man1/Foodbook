@@ -591,6 +591,309 @@ db.once("open", async () => {
       public: true,
       categories: categories[1]._id,
     },
+    {
+      createdBy: user1._id,
+      title: "White Fish Espagnole",
+      ingredients: [
+        "1/4 Cup olive oil",
+        "1/4 Cup chopped onions",
+        "1/3 Cup chopped green peppers",
+        "One 15-ounce can stewed tomatoes, or 1 1/2 cups chopped fresh tomato",
+        "1/4 Cup minced parsley",
+        "1 Teaspoon dried marjoram",
+        "3 Tablespoons dry sherry",
+        "1 Pound cod, pollock, or another white fish fillets",
+        "Salt and pepper, to taste",
+        "2 Tablespoons butter or vegetable oil" ,
+      ],
+      instructions:
+        " In a food processor or an electric blender, coarsely grind the almonds. Heat 1 tablespoon of the oil in a saucepan and stir in the almonds.\
+        Cook, stirring frequently, over medium heat, until the almonds are golden. Remove from the pan. \
+        Stir in the remaining 3 tablespoons of the oil, then add the onions and green peppers into pan; cook until soft, about 3 minutes. \
+        Stir in the stewed tomatoes, parsley, marjoram, sherry, and ground almond mixture. Heat through and keep warm. Season the fish with salt and pepper.\
+         Melt the butter in a frying pan and sauté the fish until golden and until the fish flakes with a fork.\
+        Transfer the fish to a platter and top with the almond vegetable gremolata. Accompany with stir-fried, cubed zucchini and hot cooked rice, if you wish. ",
+      likes: [{ username: "username1", likedOn: new Date().toISOString() }],
+      dislikes: [{ username: "username2", likedOn: new Date().toISOString() }],
+      comments: [
+        {
+          username: "username1",
+          comment: "username1 liked it",
+          commentedOn: new Date().toISOString(),
+        },
+        {
+          username: "username2",
+          comment: "username2 disliked it",
+          commentedOn: new Date().toISOString(),
+        },
+      ],
+      image: "White-Fish-Espagnole.jpg",
+      public: true,
+      categories: categories[1]._id,
+    },
+
+    {
+      createdBy: user1._id,
+      title: "Pork tenderloin in puff pastry",
+      ingredients: [
+        "600 grams pork tenderloin",
+        "4 Tbs dijon mustard",
+        "100 grams pancetta",
+        "2 Tbs olive oil",
+        "4 Tbs red pesto",
+        "400 grams fresh puff pastry",
+        "1 leave fresh oregano leaves"
+        ,
+      ],
+      instructions:
+        "Remove all visible fat from the tenderloin and coat all sides with Dijon mustard.\
+        Tightly wrap in pancetta slices, tie with a string if necessary. Place on a baking sheet coated with olive oil. Bake in the oven for 20-30 minutes at 200C.\
+        When done, cool down and remove pancetta slices.\
+        In a food processor mix and combine crisp pancetta slices with 3 tablespoons of the pesto. Set aside.\
+        Sprinkle fresh oregano leaves over puff pastry cut into rectangle slightly larger than the length of the tenderloin. Place the cooled tenderloin along the longer edge of the dough.\
+        Roll the tenderloin and puff pastry sheet into a roll. With little water crimp the edges together to seal. Cut the remaining pastry into strips and decorate the roll, if you wish.\
+        Use the remaining pesto to mix with little olive oil, if necessary, and brush the pastry roll.\
+        Bake in oven for 20 minutes at 200C.\
+        Before serving, leave to stand for 10 minutes, then cut into thick slices and serve with a pancetta and pesto spread.  ",
+      likes: [{ username: "username1", likedOn: new Date().toISOString() }],
+      dislikes: [{ username: "username2", likedOn: new Date().toISOString() }],
+      comments: [
+        {
+          username: "username1",
+          comment: "username1 liked it",
+          commentedOn: new Date().toISOString(),
+        },
+        {
+          username: "username2",
+          comment: "username2 disliked it",
+          commentedOn: new Date().toISOString(),
+        },
+      ],
+      image: "Pork.jpg",
+      public: true,
+      categories: categories[2]._id,
+    },
+    {
+      createdBy: user1._id,
+      title: "Stuffed Bread",
+      ingredients: [
+        "1/2 lb sliced Ham",
+        "5 hard boiled eggs",
+        "1 1/2 cup cheese",
+        "5-7 large fresh basil leaves, torn",
+        "1/2 cup sun-dried tomatoes",
+        "olive oil",
+        "salt and pepper to taste",
+        "1 Recipe White Bread" ,
+      ],
+      instructions:
+        "Prepare your basic bread recipe as directed. \
+        After the dough had risen and doubled in size, punch down, \
+        then shape into a rough rectangle on a floured surface.\
+        On the dough place your ham, eggs, cheese, basil and tomatoes.\
+        er the top drizzle with a touch of extra virgin olive oil.\
+       Pull the dough over the filling to connect the \
+       edges – think of it like you’re making a giant burrito. \
+       Pinch the edges to seal in all your incredible ingredients. \
+       Now your burrito is going to become a large donut as you carefully\
+      join the ends to meet. Pinch and seal the ends so that you now\
+      have an endless ring of stuffed-bread goodness.\
+      Carefully place your ring of bread on a oil piece of parchment \
+      lining a baking sheet. Paint or drizzle the top of the dough\
+      with a couple of tablespoons of melted butter.\
+      Let the dough rest and rise while you are pre-heating the oven\
+      to 350* Bake for 35 minutes or until golden.\
+      Let cool, although I understand if you can’t wait that long.\
+      It really is best served while the contents of the bread are still\
+       Slice and devour. ",
+      likes: [{ username: "username1", likedOn: new Date().toISOString() }],
+      dislikes: [{ username: "username2", likedOn: new Date().toISOString() }],
+      comments: [
+        {
+          username: "username1",
+          comment: "username1 liked it",
+          commentedOn: new Date().toISOString(),
+        },
+        {
+          username: "username2",
+          comment: "username2 disliked it",
+          commentedOn: new Date().toISOString(),
+        },
+      ],
+      image: "Stuffed-Bread.jpg",
+      public: true,
+      categories: categories[1]._id,
+    },
+    {
+      createdBy: user1._id,
+      title: "Banana Bread",
+      ingredients: [
+        "3 bananas",
+        "1 cup butter",
+        "1 cup sugar",
+        "1 egg",
+        "1 teaspoon vanilla",
+        "1.5 cups flour" ,
+      ],
+      instructions:
+        "Preheat the oven to 350 degree. In big bow smashed banana and add melted butter, then add sugar, egg, and vanilla.\
+        Keep mixer then add flour, salt and baking soda mixed well then pour buttered into 8 X 3.75 inch loaf pan. Bake for 1 hour.\
+         keep cool on the rack. Slice and serve. ",
+      likes: [{ username: "username1", likedOn: new Date().toISOString() }],
+      dislikes: [{ username: "username2", likedOn: new Date().toISOString() }],
+      comments: [
+        {
+          username: "username1",
+          comment: "username1 liked it",
+          commentedOn: new Date().toISOString(),
+        },
+        {
+          username: "username2",
+          comment: "username2 disliked it",
+          commentedOn: new Date().toISOString(),
+        },
+      ],
+      image: "Banana-Bread.jpg",
+      public: true,
+      categories: categories[0]._id,
+    },
+    {
+      createdBy: user1._id,
+      title: "Roast Rack of Lamb",
+      ingredients: [
+       
+      "1 American rack of lamb (8 chops) or 2 New Zealand racks of lamb (16 chops total), about 1 1/2 pounds, ribs frenched",
+      "Salt",
+      "Pepper",
+      "1 pound lamb stew meat or trimmings, cut into 1/2-inch strips",
+      "1/2 onion, coarsely chopped",
+      "2 cups chicken broth"     ,
+      ],
+      instructions:
+        "Let the rack(s) come to room temperature and season all over with salt and pepper. Preheat the oven to 450°F.\
+        Spread the stew meat and onion on the bottom of a roasting pan just large enough to hold the rack(s). Place the rack(s) on top. \
+        Slide the pan into the oven and roast for about 25 minutes, or until an instant-read thermometer inserted into the center of the roast without touching bone \
+        reads 125°F to 130°F or until the meat feels firm when you press both ends of the rack(s).\
+        Transfer the rack(s) to a platter or cutting board, tent loosely with aluminum foil, and let rest for 15 minutes before carving.\
+        While the rack(s) are resting, make the jus. Put the roasting pan on the stove top over high heat and stir around the pieces of meat until the meat \
+        is browned and any juices have caramelized on the bottom of the pan. Discard the fat and return the pan to high heat. Deglaze the pan with 1/2 cup of the broth,\
+         scraping up any brown bits on the bottom of the pan with a wooden spoon. Boil down the broth until it caramelizes into a crusty brown layer with a layer of clear \
+        fat on top. Pour off the fat, return the pan to high heat, and deglaze the pan with a second 1/2 cup broth, again boiling it down. Deglaze the pan with the remaining 1 cup broth, \
+        stirring until the crust has dissolved into the liquid, and then strain the \
+        liquid through a fine-mesh strainer into a warmed sauceboat.\
+        Carve the rack(s), cutting between the ribs. Pass the jus at \
+        the table.",
+      likes: [{ username: "username1", likedOn: new Date().toISOString() }],
+      dislikes: [{ username: "username2", likedOn: new Date().toISOString() }],
+      comments: [
+        {
+          username: "username1",
+          comment: "username1 liked it",
+          commentedOn: new Date().toISOString(),
+        },
+        {
+          username: "username2",
+          comment: "username2 disliked it",
+          commentedOn: new Date().toISOString(),
+        },
+      ],
+      image: "Roast-Lamb.jpg",
+      public: true,
+      categories: categories[2]._id,
+    },
+    {
+      createdBy: user1._id,
+      title: "Deer Meat Stir-Fry",
+      ingredients: [
+        "1 lb deer meat (will work with pork and beef too)- thinly sliced",
+        "3 tbsp sesame oil (can substitute with other oil)",
+        "1 tbsp sweet soy sauce",
+        "1 tbsp soy sauce",
+        "½ tsp white pepper powder",
+        "1 tbsp gula jawa/palm sugar (can substitute with brown sugar)",
+        "½ tbsp lemon pepper seasoning",
+        "½ tbsp prime rib rub",
+        "1 clove of garlic (smashed)",
+        "2 tbsp of finely sliced ginger (optional)" ,
+      ],
+      instructions:
+        "Marinade the meat for at least 1 hour or overnight\
+        if you plan ahead\
+        Preheat the wok/pan. Add the sesame oil and garlic.\
+        Saute until the garlic is fragrant. Be careful not to burn\
+        the garlic\
+        Add in the meat and saute until it turns color and cooked \
+        through. You may remove the garlic \
+        before serving",
+      likes: [{ username: "username1", likedOn: new Date().toISOString() }],
+      dislikes: [{ username: "username2", likedOn: new Date().toISOString() }],
+      comments: [
+        {
+          username: "username1",
+          comment: "username1 liked it",
+          commentedOn: new Date().toISOString(),
+        },
+        {
+          username: "username2",
+          comment: "username2 disliked it",
+          commentedOn: new Date().toISOString(),
+        },
+      ],
+      image: "Deer-Meat.jpg",
+      public: true,
+      categories: categories[2]._id,
+    },
+    {
+      createdBy: user2._id,
+      title: "Warm Goat Cheese Salad",
+      ingredients: [
+        "some bread crumbs",
+          "100 grams fresh goat cheese",
+        "5 grapes",
+      "2 tablespoons lemon juice",
+      "2 tablespoons olive oil",
+      "some bell pepper",
+      "60 grams salad greens",
+      "1 shallot",
+      "1 tablespoon walnut oil",
+      "30 grams walnuts" ,
+      ],
+      instructions:
+        "Whisk together 3 tablespoons of walnut oil with lemon juice, \
+        minced shallot, salt and pepper to make a vinaigrette. \
+        Coat each goat cheese round with walnut oil and then the\
+         bread crumbs, patting the crumbs to adhere.\
+        Combine the greens and the walnuts in a large bowl.\
+         Add in enough of the vinaigrette and toss well. \
+         Adjust the seasoning and divide among two serving plates.\
+        Heat a nonstick skillet over medium heat. Add in olive oil.\
+         When the oil is hot, add the goat cheese rounds.\
+          Cook until nicely browned, about 30 seconds.\
+         Turn and cook the other side. Do not allow it to burn or melt.\
+          Transfer the goat cheese to the plates, \
+          placing 2 or 3 atop each salad. \
+        Sprinkle the cheese with freshly ground pepper\
+        and garnish with grape wedges.",
+      likes: [{ username: "username1", likedOn: new Date().toISOString() }],
+      dislikes: [{ username: "username2", likedOn: new Date().toISOString() }],
+      comments: [
+        {
+          username: "username1",
+          comment: "username1 liked it",
+          commentedOn: new Date().toISOString(),
+        },
+        {
+          username: "username2",
+          comment: "username2 disliked it",
+          commentedOn: new Date().toISOString(),
+        },
+      ],
+      image: "Goat-Cheese-Salad.jpg",
+      public: true,
+      categories: categories[3]._id,
+    },
+
+
   ]);
 
   console.log("recipes seeded");
