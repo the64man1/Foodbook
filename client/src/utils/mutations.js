@@ -64,74 +64,6 @@ export const CREATE_RECIPE = gql`
   }
 `;
 
-// export const CREATE_RECIPE = gql`
-//     mutation {
-//         createRecipe(input:{...}) {
-//             createdBy
-//             title
-//             ingredients
-//             instructions
-//             likes {
-//                 username
-//                 likedOn
-//             }
-//             dislikes {
-//                 username
-//                 dislikedOn
-//             }
-//             comments {
-//                 username
-//                 comment
-//                 commentedOn
-//             }
-//             image
-//             public
-//             categories
-//         }
-
-//         input createdBy{
-//             type: Schema.Types.ObjectId, ref: "User"
-//         }
-
-//         input title{
-//             type: String!
-//         }
-
-//         input ingredients{
-//             type: String!
-//         }
-
-//         input instructions{
-//             type: String!
-//         }
-
-//         input numberOfLikes{
-//             type: Number!
-//         }
-
-//         input numberOfDislikes{
-//             type: Number!
-//         }
-
-//         input comments{
-//             type: [],
-//         }
-
-//         input image{
-//             type:"",
-//         }
-
-//         input public{
-//             type: Boolean!
-//         }
-
-//         input categories{
-//             type:[Category.schema]
-//         }
-//     }
-//   }
-// `;
-
 export const DELETE_RECIPE = gql`
   mutation ($id: ID!) {
     deleteRecipe(recipeId: $id) {
@@ -140,13 +72,4 @@ export const DELETE_RECIPE = gql`
   }
 `;
 
-// export const UPDATE_RECIPE = gql``;
-
-//mutations:
-// add user
-// login
-// create recipe
-// delete recipe (creator can delete)
-// update recipe (creator can update)
-
-// mutation ADD_USER ($input: UpdatePostInput! { updatePost(input: $input) {...}})
+//TODO: update user, update recipe (likes and change instructions/igredients), add comment

@@ -31,28 +31,6 @@ function Profile() {
             </Card>
             </>
         )
-        // return (
-        //     <Card>
-        //         <Card.Content>{data.me.firstName} {data.me.lastName}</Card.Content>
-        //         <Card.Content>Username: {data.me.username}</Card.Content>
-        //         <Card.Content>Email: {data.me.email}</Card.Content>
-        //         {data.me.createdRecipes.map((recipe) => {
-        //             <CreatedRecipes
-        //               key={recipe.id}
-        //               id={recipe.id}
-        //               image={recipe.image}
-        //               title={recipe.title}
-        //               instructions ={recipe.instructions}
-        //               ingredients={recipe.ingredients}
-        //               createdBy={recipe.createdBy}
-        //               likes={recipe.likes}
-        //               dislikes={recipe.dislikes}
-        //               comments={recipe.comments}
-        //               categories={recipe.categories}
-        //             />
-        //         })}
-        //     </Card>
-        // )
     }
 }
 
