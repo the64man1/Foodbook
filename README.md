@@ -1,3 +1,5 @@
+
+
 # Foodbook
 [![License: GPL v3](https://img.shields.io/badge/License-GPLv3-blue.svg)](https://www.gnu.org/licenses/gpl-3.0)
 
@@ -9,7 +11,9 @@ This project was completed using the MERN stack: React provides the front-end Ja
 
 In completing this project, we learned how to build a full-stack MERN application from scratch - from structuring the models and API request routes on the back-end, to using React components and hooks to handle user-input on the front-end.
 
-![Foodbook](https://user-images.githubusercontent.com/74144055/129276692-d35d5586-6ac6-47f2-8cfc-aeb9a4a7326f.gif)
+
+![Foodbook](https://user-images.githubusercontent.com/74144055/129291701-c8bf91fb-8129-4e1e-99b6-2492140cd72d.gif)
+
    
 ## Table of Contents
     
