@@ -4,6 +4,11 @@ import { Input, Menu, Segment } from "semantic-ui-react";
 
 import Auth from "../../utils/auth";
 
+// front end
+//import 'materialize-css/dist/css/materialize.min.css'
+//import 'materialize-css';
+//import { Navbar , NavItem , Icon } from 'react-materialize';
+
 function Nav() {
   const pathname = window.location.pathname;
   const path = pathname === "/" ? "home" : pathname.substr(1);
